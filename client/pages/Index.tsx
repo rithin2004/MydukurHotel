@@ -1,27 +1,45 @@
 import { useState } from "react";
-import { Menu, X, Phone, Mail, MapPin, Star, Clock, Utensils, Shield, Award } from "lucide-react";
+import { Menu, X, Phone, Mail, MapPin, Star, Clock, Utensils, Shield, Award, ChefHat, Facebook, Instagram, Twitter } from "lucide-react";
 
 export default function Index() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menuItems = [
-    { name: "Plain Dosa", price: "₹80", category: "main" },
-    { name: "Karam Dosa", price: "₹90", category: "main" },
-    { name: "Masala Dosa", price: "₹100", category: "main" },
-    { name: "Karam Masala Dosa", price: "₹110", category: "main" },
-    { name: "Ghee Karam Dosa", price: "₹120", category: "main" },
-    { name: "Ghee Masala Dosa", price: "₹130", category: "main" },
-    { name: "Idly", price: "₹60", category: "main" },
-    { name: "Vada", price: "₹70", category: "main" },
-    { name: "Poori", price: "₹75", category: "main" },
-    { name: "Bonda", price: "₹65", category: "main" },
-    { name: "Pongal", price: "₹85", category: "main" },
+    { name: "Plain Dosa", category: "main" },
+    { name: "Karam Dosa", category: "main" },
+    { name: "Masala Dosa", category: "main" },
+    { name: "Karam Masala Dosa", category: "main" },
+    { name: "Ghee Karam Dosa", category: "main" },
+    { name: "Ghee Masala Dosa", category: "main" },
+    { name: "Idly", category: "main" },
+    { name: "Vada", category: "main" },
+    { name: "Poori", category: "main" },
+    { name: "Bonda", category: "main" },
+    { name: "Pongal", category: "main" },
   ];
 
   const sideDishes = [
-    { name: "Coconut Chutney", price: "₹30" },
-    { name: "Red Chilli Onion Chutney", price: "₹35" },
-    { name: "Masala for Poori", price: "₹40" },
+    { name: "Coconut Chutney" },
+    { name: "Red Chilli Onion Chutney" },
+    { name: "Masala for Poori" },
+  ];
+
+  const signatureDishes = [
+    {
+      name: "Masala Dosa",
+      image: "https://images.pexels.com/photos/941869/pexels-photo-941869.jpeg",
+      description: "Golden crispy dosa filled with spiced potato masala, served with coconut chutney and sambar. Our most popular dish!"
+    },
+    {
+      name: "Karam Dosa",
+      image: "https://images.pexels.com/photos/33430562/pexels-photo-33430562.jpeg",
+      description: "Spicy dosa with special karam powder that adds a fiery kick to every bite. Perfect for spice lovers!"
+    },
+    {
+      name: "Plain Dosa",
+      image: "https://images.pexels.com/photos/1080314/pexels-photo-1080314.jpeg",
+      description: "Classic thin and crispy dosa, light and delicious. The perfect canvas for our homemade chutneys."
+    }
   ];
 
   const services = [
@@ -44,8 +62,39 @@ export default function Index() {
       icon: Award,
       title: "Award Winning Taste",
       description: "Recognized for our authentic flavors and exceptional dining experience."
+    },
+    {
+      icon: ChefHat,
+      title: "Catering Services",
+      description: "We provide professional catering services for events, parties, and special occasions with authentic South Indian cuisine."
     }
   ];
+
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    mobile: '',
+    message: ''
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.name || !formData.mobile || !formData.message) {
+      alert('Please fill in all required fields');
+      return;
+    }
+
+    const whatsappMessage = `Hello Mydukur Hotel! My name is ${formData.name}. ${formData.message}. Please contact me at ${formData.mobile}${formData.email ? ` or email ${formData.email}` : ''}.`;
+    const whatsappUrl = `https://wa.me/919876543210?text=${encodeURIComponent(whatsappMessage)}`;
+    window.open(whatsappUrl, '_blank');
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -54,7 +103,10 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between h-16">
             <div className="flex items-center">
-              <div className="flex-shrink-0">
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 bg-amber-600 rounded-full flex items-center justify-center">
+                  <ChefHat className="w-6 h-6 text-white" />
+                </div>
                 <h1 className="text-2xl font-bold text-amber-600">Mydukur Hotel</h1>
               </div>
             </div>
@@ -92,24 +144,63 @@ export default function Index() {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="pt-16 bg-gradient-to-br from-amber-50 to-orange-50">
+      <section
+        id="home"
+        className="pt-16 relative min-h-screen flex items-center"
+        style={{
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), url('https://images.pexels.com/photos/941869/pexels-photo-941869.jpeg')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
         <div className="max-w-7xl mx-auto px-4 py-20">
-          <div className="text-center">
-            <h1 className="text-5xl md:text-7xl font-bold text-gray-800 mb-6">
-              Welcome to <span className="text-amber-600">Mydukur Hotel</span>
+          <div className="text-center text-white">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6">
+              Welcome to <span className="text-amber-400">Mydukur Hotel</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              Experience the authentic taste of South Indian cuisine with our traditional recipes 
+            <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+              Experience the authentic taste of South Indian cuisine with our traditional recipes
               and warm hospitality that has been serving families for generations.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="#menu" className="bg-amber-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-amber-700 transition-colors">
-                View Our Menu
+              <a href="#signature-dishes" className="bg-amber-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-amber-700 transition-colors">
+                View Our Signature Dishes
               </a>
-              <a href="#contact" className="border-2 border-amber-600 text-amber-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-amber-600 hover:text-white transition-colors">
+              <a href="#contact" className="border-2 border-amber-400 text-amber-400 px-8 py-4 rounded-full text-lg font-semibold hover:bg-amber-400 hover:text-white transition-colors">
                 Contact Us
               </a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Signature Dishes Section */}
+      <section id="signature-dishes" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Our Signature Dishes</h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Discover our most beloved creations that have made Mydukur Hotel a culinary destination
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {signatureDishes.map((dish, index) => (
+              <div key={index} className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow">
+                <div className="h-64 overflow-hidden">
+                  <img
+                    src={dish.image}
+                    alt={dish.name}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-2xl font-bold text-gray-800 mb-3">{dish.name}</h3>
+                  <p className="text-gray-600 leading-relaxed">{dish.description}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -130,9 +221,8 @@ export default function Index() {
               <h3 className="text-3xl font-bold text-gray-800 mb-8 text-center">Main Dishes</h3>
               <div className="space-y-4">
                 {menuItems.map((item, index) => (
-                  <div key={index} className="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                  <div key={index} className="p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
                     <span className="text-lg font-medium text-gray-800">{item.name}</span>
-                    <span className="text-lg font-bold text-amber-600">{item.price}</span>
                   </div>
                 ))}
               </div>
@@ -143,9 +233,8 @@ export default function Index() {
               <h3 className="text-3xl font-bold text-gray-800 mb-8 text-center">Side Dishes</h3>
               <div className="space-y-4">
                 {sideDishes.map((item, index) => (
-                  <div key={index} className="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                  <div key={index} className="p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
                     <span className="text-lg font-medium text-gray-800">{item.name}</span>
-                    <span className="text-lg font-bold text-emerald-600">{item.price}</span>
                   </div>
                 ))}
               </div>
@@ -164,7 +253,7 @@ export default function Index() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
             {services.map((service, index) => (
               <div key={index} className="bg-white rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-shadow">
                 <div className="bg-amber-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -225,72 +314,109 @@ export default function Index() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-12">
-            <div className="space-y-8">
-              <div className="flex items-start space-x-4">
-                <div className="bg-amber-100 p-3 rounded-full">
-                  <MapPin className="w-6 h-6 text-amber-600" />
+            <div className="space-y-6">
+              <div className="bg-white p-6 rounded-lg shadow-sm">
+                <div className="flex items-center space-x-4 mb-4">
+                  <div className="bg-amber-100 p-3 rounded-full">
+                    <MapPin className="w-6 h-6 text-amber-600" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-800">Visit Us</h3>
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">Visit Us</h3>
-                  <p className="text-gray-600">
-                    Mydukur Hotel<br />
-                    Main Street, Mydukur<br />
-                    Andhra Pradesh, India
-                  </p>
-                </div>
+                <p className="text-gray-600 ml-16">
+                  Mydukur Hotel<br />
+                  Main Street, Mydukur<br />
+                  Andhra Pradesh, India
+                </p>
               </div>
 
-              <div className="flex items-start space-x-4">
-                <div className="bg-amber-100 p-3 rounded-full">
-                  <Phone className="w-6 h-6 text-amber-600" />
+              <div className="bg-white p-6 rounded-lg shadow-sm">
+                <div className="flex items-center space-x-4 mb-4">
+                  <div className="bg-amber-100 p-3 rounded-full">
+                    <Phone className="w-6 h-6 text-amber-600" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-800">Call Us</h3>
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">Call Us</h3>
-                  <p className="text-gray-600">+91 9876543210</p>
-                </div>
+                <p className="text-gray-600 ml-16">+91 9876543210</p>
               </div>
 
-              <div className="flex items-start space-x-4">
-                <div className="bg-amber-100 p-3 rounded-full">
-                  <Mail className="w-6 h-6 text-amber-600" />
+              <div className="bg-white p-6 rounded-lg shadow-sm">
+                <div className="flex items-center space-x-4 mb-4">
+                  <div className="bg-amber-100 p-3 rounded-full">
+                    <Mail className="w-6 h-6 text-amber-600" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-800">Email Us</h3>
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">Email Us</h3>
-                  <p className="text-gray-600">info@mydukurhotel.com</p>
-                </div>
+                <p className="text-gray-600 ml-16">info@mydukurhotel.com</p>
               </div>
 
-              <div className="flex items-start space-x-4">
-                <div className="bg-amber-100 p-3 rounded-full">
-                  <Clock className="w-6 h-6 text-amber-600" />
+              <div className="bg-white p-6 rounded-lg shadow-sm">
+                <div className="flex items-center space-x-4 mb-4">
+                  <div className="bg-amber-100 p-3 rounded-full">
+                    <Clock className="w-6 h-6 text-amber-600" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-800">Opening Hours</h3>
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">Opening Hours</h3>
-                  <p className="text-gray-600">
-                    Monday - Sunday<br />
-                    6:00 AM - 10:00 PM
-                  </p>
-                </div>
+                <p className="text-gray-600 ml-16">
+                  Monday - Sunday<br />
+                  6:00 AM - 10:00 PM
+                </p>
               </div>
             </div>
 
             <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-8">
               <h3 className="text-2xl font-bold text-gray-800 mb-6">Get in Touch</h3>
-              <form className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Name</label>
-                  <input type="text" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent" />
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Name <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                  />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
-                  <input type="email" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent" />
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                  />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Message</label>
-                  <textarea rows={4} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"></textarea>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Mobile Number <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="tel"
+                    name="mobile"
+                    value={formData.mobile}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Message <span className="text-red-500">*</span>
+                  </label>
+                  <textarea
+                    rows={4}
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                  ></textarea>
                 </div>
                 <button type="submit" className="w-full bg-amber-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-amber-700 transition-colors">
-                  Send Message
+                  Send Message via WhatsApp
                 </button>
               </form>
             </div>
@@ -303,14 +429,28 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8">
             <div>
-              <h3 className="text-2xl font-bold text-amber-400 mb-4">Mydukur Hotel</h3>
-              <p className="text-gray-300 mb-4">
+              <div className="flex items-center space-x-3 mb-4">
+                <div className="w-12 h-12 bg-amber-600 rounded-full flex items-center justify-center">
+                  <ChefHat className="w-7 h-7 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-amber-400">Mydukur Hotel</h3>
+              </div>
+              <p className="text-gray-300 mb-6">
                 Serving authentic South Indian cuisine with traditional recipes and warm hospitality for over 25 years.
               </p>
               <div className="flex space-x-4">
-                <a href="#" className="text-gray-300 hover:text-amber-400 transition-colors">Facebook</a>
-                <a href="#" className="text-gray-300 hover:text-amber-400 transition-colors">Instagram</a>
-                <a href="#" className="text-gray-300 hover:text-amber-400 transition-colors">Twitter</a>
+                <a href="#" className="text-gray-300 hover:text-amber-400 transition-colors flex items-center space-x-2">
+                  <Facebook className="w-5 h-5" />
+                  <span>Facebook</span>
+                </a>
+                <a href="#" className="text-gray-300 hover:text-amber-400 transition-colors flex items-center space-x-2">
+                  <Instagram className="w-5 h-5" />
+                  <span>Instagram</span>
+                </a>
+                <a href="#" className="text-gray-300 hover:text-amber-400 transition-colors flex items-center space-x-2">
+                  <Twitter className="w-5 h-5" />
+                  <span>Twitter</span>
+                </a>
               </div>
             </div>
 
