@@ -4,7 +4,6 @@ import masalaDosaImg from "../assets/MasalaDosa.webp";
 import karamDosaImg from "../assets/KaramDosa.jpeg";
 import plainDosaImg from "../assets/PlainDosa.jpg";
 import heroImg from "../assets/Hero.jpeg";
-import { FaWhatsapp } from "react-icons/fa";
 import {
   Menu,
   X,
@@ -15,6 +14,7 @@ import {
   Utensils,
   Shield,
   ChefHat,
+  MessageCircle,
 } from "lucide-react";
 
 export default function Index() {
@@ -592,7 +592,7 @@ Thank you for your time and I look forward to hearing from you soon!`;
                   rel="noopener noreferrer"
                   className="text-gray-300 hover:text-amber-400 transition-colors flex items-center space-x-2"
                 >
-                  <FaWhatsapp className="w-5 h-5" />
+                  <MessageCircle className="w-5 h-5" />
                   <span>WhatsApp</span>
                 </a>
               </div>
