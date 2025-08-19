@@ -92,7 +92,15 @@ export default function Index() {
       return;
     }
 
-    const whatsappMessage = `Hello Mydukur Hotel! My name is ${formData.name}. ${formData.message}. Please contact me at ${formData.mobile}${formData.email ? ` or email ${formData.email}` : ''}.`;
+    const whatsappMessage = `Hello Mydukur Hotel!
+
+Greetings! My name is ${formData.name}.
+
+${formData.message}
+
+Please contact me at ${formData.mobile}${formData.email ? ` or email ${formData.email}` : ''}.
+
+Thank you for your time and I look forward to hearing from you soon!`;
     const whatsappUrl = `https://wa.me/919876543210?text=${encodeURIComponent(whatsappMessage)}`;
     window.open(whatsappUrl, '_blank');
   };
@@ -427,7 +435,7 @@ export default function Index() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-800 text-white py-12">
+      <footer className="bg-gray-800 text-white py-8">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8">
             <div>
@@ -441,7 +449,7 @@ export default function Index() {
                 Serving authentic South Indian cuisine with traditional recipes and warm hospitality for over 25 years.
               </p>
               <div className="flex space-x-4">
-                <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-amber-400 transition-colors flex items-center space-x-2">
+                <a href="https://wa.me/919876543210?text=Hello%2C%20I%20would%20like%20to%20know%20more%20details%20of%20Mydukur%20Hotel." target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-amber-400 transition-colors flex items-center space-x-2">
                   <MessageCircle className="w-5 h-5" />
                   <span>WhatsApp</span>
                 </a>
