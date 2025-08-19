@@ -22,12 +22,13 @@ export default function Index() {
     { name: "Coconut Chutney" },
     { name: "Red Chilli Onion Chutney" },
     { name: "Masala for Poori" },
+    { name: "Sambar" },
   ];
 
   const signatureDishes = [
     {
       name: "Masala Dosa",
-      image: "https://images.pexels.com/photos/20422131/pexels-photo-20422131.jpeg",
+      image: "https://images.pexels.com/photos/20422138/pexels-photo-20422138.jpeg",
       description: "Golden crispy dosa filled with spiced potato masala, served with coconut chutney and sambar. Our most popular dish!"
     },
     {
@@ -37,7 +38,7 @@ export default function Index() {
     },
     {
       name: "Plain Dosa",
-      image: "https://images.pexels.com/photos/20422133/pexels-photo-20422133.jpeg",
+      image: "https://images.pexels.com/photos/3569706/pexels-photo-3569706.jpeg",
       description: "Classic thin and crispy dosa, light and delicious. The perfect canvas for our homemade chutneys."
     }
   ];
@@ -148,7 +149,7 @@ export default function Index() {
         id="home"
         className="pt-16 relative min-h-screen flex items-center"
         style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), url('https://images.pexels.com/photos/20422128/pexels-photo-20422128.jpeg')`,
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), url('https://images.pexels.com/photos/941869/pexels-photo-941869.jpeg')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
