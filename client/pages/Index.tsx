@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X, Phone, Mail, MapPin, Star, Clock, Utensils, Shield, Award, ChefHat, Facebook, Instagram, Twitter } from "lucide-react";
+import { Menu, X, Phone, Mail, MapPin, Star, Clock, Utensils, Shield, Award, ChefHat, Instagram, MessageCircle } from "lucide-react";
 
 export default function Index() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -441,17 +441,13 @@ export default function Index() {
                 Serving authentic South Indian cuisine with traditional recipes and warm hospitality for over 25 years.
               </p>
               <div className="flex space-x-4">
-                <a href="#" className="text-gray-300 hover:text-amber-400 transition-colors flex items-center space-x-2">
-                  <Facebook className="w-5 h-5" />
-                  <span>Facebook</span>
+                <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-amber-400 transition-colors flex items-center space-x-2">
+                  <MessageCircle className="w-5 h-5" />
+                  <span>WhatsApp</span>
                 </a>
                 <a href="#" className="text-gray-300 hover:text-amber-400 transition-colors flex items-center space-x-2">
                   <Instagram className="w-5 h-5" />
                   <span>Instagram</span>
-                </a>
-                <a href="#" className="text-gray-300 hover:text-amber-400 transition-colors flex items-center space-x-2">
-                  <Twitter className="w-5 h-5" />
-                  <span>Twitter</span>
                 </a>
               </div>
             </div>
@@ -480,7 +476,7 @@ export default function Index() {
 
           <div className="border-t border-gray-700 mt-8 pt-8 text-center">
             <p className="text-gray-300">
-              © 2024 Mydukur Hotel. All rights reserved. Made with ❤️ for authentic South Indian cuisine lovers.
+              © 2025 Mydukur Hotel. All rights reserved. Made with ❤️ for authentic South Indian cuisine lovers.
             </p>
           </div>
         </div>
