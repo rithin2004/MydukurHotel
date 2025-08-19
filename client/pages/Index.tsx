@@ -27,17 +27,17 @@ export default function Index() {
   const signatureDishes = [
     {
       name: "Masala Dosa",
-      image: "https://images.pexels.com/photos/941869/pexels-photo-941869.jpeg",
+      image: "https://images.pexels.com/photos/20422131/pexels-photo-20422131.jpeg",
       description: "Golden crispy dosa filled with spiced potato masala, served with coconut chutney and sambar. Our most popular dish!"
     },
     {
       name: "Karam Dosa",
-      image: "https://images.pexels.com/photos/33430562/pexels-photo-33430562.jpeg",
+      image: "https://images.pexels.com/photos/20422133/pexels-photo-20422133.jpeg",
       description: "Spicy dosa with special karam powder that adds a fiery kick to every bite. Perfect for spice lovers!"
     },
     {
       name: "Plain Dosa",
-      image: "https://images.pexels.com/photos/1080314/pexels-photo-1080314.jpeg",
+      image: "https://images.pexels.com/photos/20422133/pexels-photo-20422133.jpeg",
       description: "Classic thin and crispy dosa, light and delicious. The perfect canvas for our homemade chutneys."
     }
   ];
