@@ -248,24 +248,24 @@ Thank you for your time and I look forward to hearing from you soon!`;
       >
         <div className="max-w-7xl mx-auto px-4 py-20 mt-8 sm:mt-16 md:mt-24 lg:mt-32 xl:mt-40">
           <div className="text-center text-white">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6">
               Welcome to <span className="text-amber-400">Mydukur Hotel</span>
             </h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 max-w-3xl mx-auto">
               Experience the authentic taste of South Indian cuisine with our
               traditional recipes and warm hospitality that has been serving
               families for generations.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <a
                 href="#signature-dishes"
-                className="bg-amber-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-amber-700 transition-colors"
+                className="bg-amber-600 text-white px-4 py-3 sm:px-6 sm:py-3 md:px-8 md:py-4 rounded-full text-sm sm:text-base md:text-lg font-semibold hover:bg-amber-700 transition-colors"
               >
                 View Our Signature Dishes
               </a>
               <a
                 href="#contact"
-                className="border-2 border-amber-400 text-amber-400 px-8 py-4 rounded-full text-lg font-semibold hover:bg-amber-400 hover:text-white transition-colors"
+                className="border-2 border-amber-400 text-amber-400 px-4 py-3 sm:px-6 sm:py-3 md:px-8 md:py-4 rounded-full text-sm sm:text-base md:text-lg font-semibold hover:bg-amber-400 hover:text-white transition-colors"
               >
                 Contact Us
               </a>
