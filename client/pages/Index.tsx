@@ -246,8 +246,8 @@ Thank you for your time and I look forward to hearing from you soon!`;
           backgroundRepeat: "no-repeat",
         }}
       >
-        <div className="max-w-7xl mx-auto px-4 py-20">
-          <div className="text-center text-white mt-12">
+        <div className="max-w-7xl mx-auto px-4 pt-20 pb-12">
+          <div className="text-center text-white">
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
               Welcome to <span className="text-amber-400">Mydukur Hotel</span>
             </h1>
