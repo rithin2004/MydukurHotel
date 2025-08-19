@@ -147,7 +147,8 @@ export default function Index() {
       {/* Hero Section */}
       <section
         id="home"
-        className="pt-16 relative min-h-screen flex items-center"
+        className="relative min-h-screen flex items-center"
+        style={{ marginTop: '64px' }}
         style={{
           backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), url('https://images.pexels.com/photos/20422128/pexels-photo-20422128.jpeg')`,
           backgroundSize: 'cover',
