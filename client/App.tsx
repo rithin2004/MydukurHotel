@@ -34,13 +34,11 @@ const App = () => (
 
 // Fix for React createRoot being called multiple times during HMR
 const container = document.getElementById("root")!;
-let root: Root;
 
-if (!container._reactInternalInstance) {
-  root = createRoot(container);
-  container._reactInternalInstance = root;
-} else {
-  root = container._reactInternalInstance;
+// Check if root already exists to prevent multiple createRoot calls
+if (!(window as any).__reactRoot) {
+  (window as any).__reactRoot = createRoot(container);
 }
 
+const root: Root = (window as any).__reactRoot;
 root.render(<App />);
