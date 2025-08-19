@@ -1,5 +1,5 @@
 import { useState } from "react";
-import logoImg from "../assets/logo.jpg";
+import logoImg from "../assets/Logo.jpg";
 import masalaDosaImg from "../assets/MasalaDosa.webp";
 import karamDosaImg from "../assets/KaramDosa.jpeg";
 import plainDosaImg from "../assets/PlainDosa.jpg";
