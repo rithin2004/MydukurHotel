@@ -1,18 +1,20 @@
 import { useState } from "react";
+import logoImg from "../assets/logo.jpg";
+import masalaDosaImg from "../assets/MasalaDosa.webp";
+import karamDosaImg from "../assets/KaramDosa.jpeg";
+import plainDosaImg from "../assets/PlainDosa.jpg";
+import heroImg from "../assets/Hero.jpeg";
+import { FaWhatsapp } from "react-icons/fa";
 import {
   Menu,
   X,
   Phone,
-  Mail,
   MapPin,
   Star,
   Clock,
   Utensils,
   Shield,
-  Award,
   ChefHat,
-  Instagram,
-  MessageCircle,
 } from "lucide-react";
 
 export default function Index() {
@@ -42,22 +44,19 @@ export default function Index() {
   const signatureDishes = [
     {
       name: "Masala Dosa",
-      image:
-        "https://images.pexels.com/photos/20422138/pexels-photo-20422138.jpeg",
+      image: masalaDosaImg,
       description:
         "Golden crispy dosa filled with spiced potato masala, served with coconut chutney and sambar. Our most popular dish!",
     },
     {
       name: "Karam Dosa",
-      image:
-        "https://images.pexels.com/photos/20422133/pexels-photo-20422133.jpeg",
+      image: karamDosaImg,
       description:
         "Spicy dosa with special karam powder that adds a fiery kick to every bite. Perfect for spice lovers!",
     },
     {
       name: "Plain Dosa",
-      image:
-        "https://images.pexels.com/photos/3569706/pexels-photo-3569706.jpeg",
+      image: plainDosaImg,
       description:
         "Classic thin and crispy dosa, light and delicious. The perfect canvas for our homemade chutneys.",
     },
@@ -81,12 +80,6 @@ export default function Index() {
       title: "Hygienic Kitchen",
       description:
         "Maintaining the highest standards of cleanliness and food safety.",
-    },
-    {
-      icon: Award,
-      title: "Award Winning Taste",
-      description:
-        "Recognized for our authentic flavors and exceptional dining experience.",
     },
     {
       icon: ChefHat,
@@ -128,7 +121,7 @@ ${formData.message}
 Please contact me at ${formData.mobile}${formData.email ? ` or email ${formData.email}` : ""}.
 
 Thank you for your time and I look forward to hearing from you soon!`;
-    const whatsappUrl = `https://wa.me/919876543210?text=${encodeURIComponent(whatsappMessage)}`;
+    const whatsappUrl = `https://wa.me/919885973718?text=${encodeURIComponent(whatsappMessage)}`;
     window.open(whatsappUrl, "_blank");
   };
 
@@ -140,9 +133,11 @@ Thank you for your time and I look forward to hearing from you soon!`;
           <div className="flex justify-between h-16">
             <div className="flex items-center">
               <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-amber-600 rounded-full flex items-center justify-center">
-                  <ChefHat className="w-6 h-6 text-white" />
-                </div>
+                <img 
+                  src={logoImg} 
+                  alt="Mydukur Hotel Logo" 
+                  className="w-10 h-10 rounded-full object-cover"
+                />
                 <h1 className="text-2xl font-bold text-amber-600">
                   Mydukur Hotel
                 </h1>
@@ -238,9 +233,8 @@ Thank you for your time and I look forward to hearing from you soon!`;
       <section
         id="home"
         className="relative min-h-screen flex items-center justify-center"
-        style={{ marginTop: "64px" }}
         style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), url('https://images.pexels.com/photos/20422128/pexels-photo-20422128.jpeg')`,
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), url(${heroImg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -440,7 +434,7 @@ Thank you for your time and I look forward to hearing from you soon!`;
                 Hotel brings the true flavors of traditional cuisine to every
                 plate."
               </blockquote>
-              <cite className="text-lg">- Satisfied Customer</cite>
+              <cite className="text-lg">- Paritala Vaibhav</cite>
             </div>
           </div>
         </div>
@@ -471,7 +465,7 @@ Thank you for your time and I look forward to hearing from you soon!`;
                 <p className="text-gray-600 ml-16">
                   Mydukur Hotel
                   <br />
-                  Main Street, Mydukur
+                  Main Bazaar, Atmakur, Nellore
                   <br />
                   Andhra Pradesh, India
                 </p>
@@ -484,17 +478,7 @@ Thank you for your time and I look forward to hearing from you soon!`;
                   </div>
                   <h3 className="text-xl font-bold text-gray-800">Call Us</h3>
                 </div>
-                <p className="text-gray-600 ml-16">+91 9876543210</p>
-              </div>
-
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <div className="flex items-center space-x-4 mb-4">
-                  <div className="bg-amber-100 p-3 rounded-full">
-                    <Mail className="w-6 h-6 text-amber-600" />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-800">Email Us</h3>
-                </div>
-                <p className="text-gray-600 ml-16">info@mydukurhotel.com</p>
+                <p className="text-gray-600 ml-16">+91 9885973718</p>
               </div>
 
               <div className="bg-white p-6 rounded-lg shadow-sm">
@@ -509,7 +493,7 @@ Thank you for your time and I look forward to hearing from you soon!`;
                 <p className="text-gray-600 ml-16">
                   Monday - Sunday
                   <br />
-                  6:00 AM - 10:00 PM
+                  6:00 AM - 11:00 AM
                 </p>
               </div>
             </div>
@@ -588,9 +572,11 @@ Thank you for your time and I look forward to hearing from you soon!`;
           <div className="grid md:grid-cols-3 gap-8">
             <div>
               <div className="flex items-center space-x-3 mb-4">
-                <div className="w-12 h-12 bg-amber-600 rounded-full flex items-center justify-center">
-                  <ChefHat className="w-7 h-7 text-white" />
-                </div>
+                <img 
+                  src={logoImg} 
+                  alt="Mydukur Hotel Logo" 
+                  className="w-10 h-10 rounded-full object-cover"
+                />
                 <h3 className="text-2xl font-bold text-amber-400">
                   Mydukur Hotel
                 </h3>
@@ -601,20 +587,13 @@ Thank you for your time and I look forward to hearing from you soon!`;
               </p>
               <div className="flex space-x-4">
                 <a
-                  href="https://wa.me/919876543210?text=Hello%2C%20I%20would%20like%20to%20know%20more%20details%20of%20Mydukur%20Hotel."
+                  href="https://wa.me/919885973718?text=Hello%2C%20I%20would%20like%20to%20know%20more%20details%20of%20Mydukur%20Hotel."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-300 hover:text-amber-400 transition-colors flex items-center space-x-2"
                 >
-                  <MessageCircle className="w-5 h-5" />
+                  <FaWhatsapp className="w-5 h-5" />
                   <span>WhatsApp</span>
-                </a>
-                <a
-                  href="#"
-                  className="text-gray-300 hover:text-amber-400 transition-colors flex items-center space-x-2"
-                >
-                  <Instagram className="w-5 h-5" />
-                  <span>Instagram</span>
                 </a>
               </div>
             </div>
@@ -668,10 +647,9 @@ Thank you for your time and I look forward to hearing from you soon!`;
             <div>
               <h4 className="text-xl font-bold mb-4">Contact Info</h4>
               <ul className="space-y-2 text-gray-300">
-                <li>Main Street, Mydukur</li>
+                <li>Main Bazaar, Atmakur, Nellore</li>
                 <li>Andhra Pradesh, India</li>
                 <li>Phone: +91 9876543210</li>
-                <li>Email: info@mydukurhotel.com</li>
               </ul>
             </div>
           </div>
