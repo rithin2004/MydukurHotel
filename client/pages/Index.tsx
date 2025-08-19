@@ -237,7 +237,7 @@ Thank you for your time and I look forward to hearing from you soon!`;
       {/* Hero Section */}
       <section
         id="home"
-        className="relative min-h-screen flex items-end pb-20"
+        className="relative min-h-screen flex items-end pb-32"
         style={{ marginTop: "64px" }}
         style={{
           backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), url('https://images.pexels.com/photos/20422128/pexels-photo-20422128.jpeg')`,
