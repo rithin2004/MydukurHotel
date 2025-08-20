@@ -23,12 +23,16 @@ export default function Index() {
   const menuItems = [
     { name: "Plain Dosa", category: "main" },
     { name: "Karam Dosa", category: "main" },
-    { name: "Masala Dosa", category: "main" },
+    { name: "Podi Dosa", category: "main" },
+    { name: "Karam Podi Dosa", category: "main" },
+    { name: "Ghee Karam Podi Dosa", category: "main" },
     { name: "Karam Masala Dosa", category: "main" },
     { name: "Ghee Karam Dosa", category: "main" },
     { name: "Ghee Masala Dosa", category: "main" },
     { name: "Idly", category: "main" },
+    { name: "Idly Sambar", category: "main" },
     { name: "Vada", category: "main" },
+    { name: "Vada Sambar", category: "main" },
     { name: "Poori", category: "main" },
     { name: "Bonda", category: "main" },
     { name: "Pongal", category: "main" },
@@ -52,13 +56,31 @@ export default function Index() {
       name: "Karam Dosa",
       image: karamDosaImg,
       description:
-        "Spicy dosa with special karam powder that adds a fiery kick to every bite. Perfect for spice lovers!",
+        "Spicy dosa with special red chilli onion chutney that adds a fiery kick to every bite. Perfect for spice lovers!",
+    },
+    {
+      name: "Ghee Karam Dosa",
+      image: karamDosaImg,
+      description:
+        "Spicy dosa with special red chilli onion chutney that adds a fiery kick to every bite. Perfect for spice lovers!",
     },
     {
       name: "Plain Dosa",
       image: plainDosaImg,
       description:
         "Classic thin and crispy dosa, light and delicious. The perfect canvas for our homemade chutneys.",
+    },
+    {
+      name: "Ghee Karam Podi Dosa",
+      image: karamDosaImg,
+      description:
+        "Spicy dosa with special red chilli onion chutney that adds a fiery kick to every bite. Perfect for spice lovers!",
+    },
+    {
+      name: "Idly Sambar",
+      image: heroImg,
+      description:
+        "Spicy dosa with special red chilli onion chutney that adds a fiery kick to every bite. Perfect for spice lovers!",
     },
   ];
 
