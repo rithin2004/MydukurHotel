@@ -4,6 +4,8 @@ import masalaDosaImg from "../assets/MasalaDosa.webp";
 import karamDosaImg from "../assets/KaramDosa.jpeg";
 import plainDosaImg from "../assets/PlainDosa.jpg";
 import heroImg from "../assets/Hero.jpeg";
+import gheeKaramPodiDosaImg from "../assets/GheeKaramPodiDosa.avif";
+import gheeKaramDosaImg from "../assets/GheeKaramDosa.avif";
 import {
   Menu,
   X,
@@ -60,9 +62,9 @@ export default function Index() {
     },
     {
       name: "Ghee Karam Dosa",
-      image: karamDosaImg,
+      image: gheeKaramDosaImg,
       description:
-        "Spicy dosa with special red chilli onion chutney that adds a fiery kick to every bite. Perfect for spice lovers!",
+        "Hot and crispy dosa topped with spicy red chilli onion chutney and a touch of ghee for that fiery kick you just can't resist.",
     },
     {
       name: "Plain Dosa",
@@ -72,15 +74,15 @@ export default function Index() {
     },
     {
       name: "Ghee Karam Podi Dosa",
-      image: karamDosaImg,
+      image: gheeKaramPodiDosaImg,
       description:
-        "Spicy dosa with special red chilli onion chutney that adds a fiery kick to every bite. Perfect for spice lovers!",
+        "Crispy dosa topped with flavorful red chilli onion chutney, homemade podi and a drizzle of ghee that creates a bold and fiery taste in every bite. A must-try for spice enthusiasts.",
     },
     {
       name: "Idly Sambar",
       image: heroImg,
       description:
-        "Spicy dosa with special red chilli onion chutney that adds a fiery kick to every bite. Perfect for spice lovers!",
+        "Soft and fluffy idlis served with hot, flavorful sambar for a wholesome South Indian classic.",
     },
   ];
 
