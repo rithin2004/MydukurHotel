@@ -673,7 +673,7 @@ Thank you for your time and I look forward to hearing from you soon!`;
               <ul className="space-y-2 text-gray-300">
                 <li>Main Bazaar, Atmakur, Nellore</li>
                 <li>Andhra Pradesh, India</li>
-                <li>Phone: +91 9876543210</li>
+                <li>Phone: +91 9885973718</li>
               </ul>
             </div>
           </div>
