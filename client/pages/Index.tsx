@@ -1,11 +1,11 @@
 import { useState } from "react";
-import logoImg from "../assets/Logo.jpg";
 import masalaDosaImg from "../assets/MasalaDosa.webp";
-import karamDosaImg from "../assets/KaramDosa.jpeg";
+import karamDosaImg from "../assets/KaramDosa.webp";
 import plainDosaImg from "../assets/PlainDosa.jpg";
-import heroImg from "../assets/Hero.jpeg";
-import gheeKaramPodiDosaImg from "../assets/GheeKaramPodiDosa.avif";
-import gheeKaramDosaImg from "../assets/GheeKaramDosa.avif";
+import heroImg from "../assets/Hero.webp";
+import heroMobileImg from "../assets/Hero-mobile.webp";
+import gheeKaramPodiDosaImg from "../assets/GheeKaramPodiDosa.webp";
+import gheeKaramDosaImg from "../assets/GheeKaramDosa.webp";
 import {
   Menu,
   X,
@@ -18,6 +18,8 @@ import {
   ChefHat,
   MessageCircle,
 } from "lucide-react";
+
+const logoImg = "/Logo.jpg";
 
 export default function Index() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -256,13 +258,13 @@ Thank you for your time and I look forward to hearing from you soon!`;
       {/* Hero Section */}
       <section
         id="home"
-        className="relative min-h-screen flex items-center justify-center"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), url(${heroImg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }}
+        className="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat [background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.3)),var(--hero-mobile)] sm:[background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.3)),var(--hero)]"
+        style={
+          {
+            "--hero": `url(${heroImg})`,
+            "--hero-mobile": `url(${heroMobileImg})`,
+          } as React.CSSProperties
+        }
       >
         <div className="max-w-7xl mx-auto px-4 py-20 mt-32 sm:mt-16 md:mt-20 lg:mt-28 xl:mt-40">
           <div className="text-center text-white">
