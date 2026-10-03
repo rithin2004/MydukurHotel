@@ -1,5 +1,4 @@
 import { useState } from "react";
-import logoImg from "../assets/Logo.jpg";
 import masalaDosaImg from "../assets/MasalaDosa.webp";
 import karamDosaImg from "../assets/KaramDosa.jpeg";
 import plainDosaImg from "../assets/PlainDosa.jpg";
@@ -18,6 +17,8 @@ import {
   ChefHat,
   MessageCircle,
 } from "lucide-react";
+
+const logoImg = "/Logo.jpg";
 
 export default function Index() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
