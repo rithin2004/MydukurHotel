@@ -650,22 +650,6 @@ export default function Index() {
                     </a>
                   </li>
                 ))}
-                <li>
-                  <Link
-                    to="/privacy"
-                    className="text-gray-300 hover:text-amber-400 transition-colors"
-                  >
-                    {t.footer.privacy}
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/terms"
-                    className="text-gray-300 hover:text-amber-400 transition-colors"
-                  >
-                    {t.footer.terms}
-                  </Link>
-                </li>
               </ul>
             </div>
 
