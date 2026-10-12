@@ -73,6 +73,11 @@ export type Translations = {
     message: string;
     send: string;
     fillRequired: string;
+    agreeBefore: string;
+    agreeBetween: string;
+    agreeTermsLink: string;
+    agreeAfter: string;
+    agreeRequired: string;
     mapTitle: string;
   };
   whatsapp: {
@@ -276,6 +281,12 @@ export const en: Translations = {
     message: "Message",
     send: "Send Message via WhatsApp",
     fillRequired: "Please fill in all required fields",
+    agreeBefore: "I agree to the ",
+    agreeBetween: " and ",
+    agreeTermsLink: "Terms of Use",
+    agreeAfter: ".",
+    agreeRequired:
+      "Please agree to the Privacy Policy and Terms of Use before sending",
     mapTitle: "Mydukur Hotel on Google Maps",
   },
   whatsapp: {
@@ -482,6 +493,13 @@ export const te: Translations = {
     message: "సందేశం",
     send: "వాట్సాప్ ద్వారా సందేశం పంపండి",
     fillRequired: "దయచేసి అవసరమైన అన్ని వివరాలు నింపండి",
+    agreeBefore: "నేను ",
+    agreeBetween: ", ",
+    // Joins with agreeAfter to read "వినియోగ నిబంధనలకు".
+    agreeTermsLink: "వినియోగ నిబంధనల",
+    agreeAfter: "కు అంగీకరిస్తున్నాను.",
+    agreeRequired:
+      "పంపే ముందు దయచేసి గోప్యతా విధానం, వినియోగ నిబంధనలకు అంగీకరించండి",
     mapTitle: "గూగుల్ మ్యాప్స్‌లో మైదుకూరు హోటల్",
   },
   whatsapp: {

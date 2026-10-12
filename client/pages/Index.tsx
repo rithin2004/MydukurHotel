@@ -67,6 +67,7 @@ export default function Index() {
     icon: serviceIcons[i],
   }));
 
+  const [agreed, setAgreed] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -87,6 +88,10 @@ export default function Index() {
     e.preventDefault();
     if (!formData.name || !formData.mobile || !formData.message) {
       alert(t.contact.fillRequired);
+      return;
+    }
+    if (!agreed) {
+      alert(t.contact.agreeRequired);
       return;
     }
     window.open(whatsappUrl(t.whatsapp.formMessage(formData)), "_blank");
@@ -473,7 +478,7 @@ export default function Index() {
                 name="contact"
                 autoComplete="on"
                 aria-labelledby="contact-form-title"
-                className="flex-1 flex flex-col gap-5"
+                className="flex-1 flex flex-col justify-between gap-5"
               >
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
@@ -531,7 +536,7 @@ export default function Index() {
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
                   />
                 </div>
-                <div className="flex-1 flex flex-col">
+                <div>
                   <label
                     htmlFor="contact-message"
                     className="block text-sm font-medium text-gray-700 mb-2"
@@ -539,15 +544,47 @@ export default function Index() {
                     {t.contact.message} <span className="text-red-500">*</span>
                   </label>
                   <textarea
-                    rows={3}
+                    rows={4}
                     id="contact-message"
                     name="message"
                     autoComplete="off"
                     value={formData.message}
                     onChange={handleInputChange}
                     required
-                    className="flex-1 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                    className="w-full px-4 py-3 resize-none border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
                   ></textarea>
+                </div>
+                <div className="flex items-start gap-3">
+                  <input
+                    type="checkbox"
+                    id="contact-agree"
+                    name="agree"
+                    autoComplete="off"
+                    required
+                    checked={agreed}
+                    onChange={(e) => setAgreed(e.target.checked)}
+                    className="mt-1 h-4 w-4 shrink-0 accent-amber-600"
+                  />
+                  <label
+                    htmlFor="contact-agree"
+                    className="text-sm text-gray-700"
+                  >
+                    {t.contact.agreeBefore}
+                    <Link
+                      to="/privacy"
+                      className="text-amber-600 underline hover:text-amber-700"
+                    >
+                      {t.footer.privacy}
+                    </Link>
+                    {t.contact.agreeBetween}
+                    <Link
+                      to="/terms"
+                      className="text-amber-600 underline hover:text-amber-700"
+                    >
+                      {t.contact.agreeTermsLink}
+                    </Link>
+                    {t.contact.agreeAfter}
+                  </label>
                 </div>
                 <button
                   type="submit"
