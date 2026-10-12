@@ -21,6 +21,7 @@ import {
 
 import { Link } from "react-router";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
+import { copyrightYears } from "@/lib/copyright";
 
 const logoImg = "/Logo.jpg";
 const mapQuery = "Mydukur Hotel, Main Bazaar, Atmakur, Nellore, Andhra Pradesh";
@@ -182,9 +183,9 @@ Thank you for your time and I look forward to hearing from you soon!`;
           <div className="flex justify-between h-16">
             <div className="flex items-center">
               <div className="flex items-center space-x-3">
-                <img 
-                  src={logoImg} 
-                  alt="Mydukur Hotel Logo" 
+                <img
+                  src={logoImg}
+                  alt="Mydukur Hotel Logo"
                   className="w-10 h-10 rounded-full object-cover"
                 />
                 <h1 className="text-2xl font-bold text-amber-600">
@@ -507,8 +508,8 @@ Thank you for your time and I look forward to hearing from you soon!`;
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12">
-            <div className="space-y-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12">
+            <div className="space-y-6 lg:col-span-2">
               <div className="bg-white p-6 rounded-lg shadow-sm">
                 <div className="flex items-center space-x-4 mb-4">
                   <div className="bg-amber-100 p-3 rounded-full">
@@ -559,26 +560,43 @@ Thank you for your time and I look forward to hearing from you soon!`;
                   7:00 AM - 11:00 AM
                 </p>
               </div>
-
             </div>
 
-            <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-8">
+            <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-8 lg:col-span-3 flex flex-col">
               <h3 className="text-2xl font-bold text-gray-800 mb-6">
                 Get in Touch
               </h3>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Name <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-                  />
+              <form
+                onSubmit={handleSubmit}
+                className="flex-1 flex flex-col gap-5"
+              >
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Name <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Mobile Number <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="tel"
+                      name="mobile"
+                      value={formData.mobile}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                    />
+                  </div>
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -592,35 +610,22 @@ Thank you for your time and I look forward to hearing from you soon!`;
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
                   />
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Mobile Number <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="tel"
-                    name="mobile"
-                    value={formData.mobile}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-                  />
-                </div>
-                <div>
+                <div className="flex-1 flex flex-col">
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Message <span className="text-red-500">*</span>
                   </label>
                   <textarea
-                    rows={4}
+                    rows={3}
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                    className="flex-1 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
                   ></textarea>
                 </div>
                 <button
                   type="submit"
-                  className="w-full inline-flex items-center justify-center gap-2 bg-amber-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-amber-700 transition-colors"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-amber-600 text-white px-4 sm:px-6 py-3 rounded-lg text-sm sm:text-base font-semibold hover:bg-amber-700 transition-colors"
                 >
                   <WhatsAppIcon className="w-5 h-5" />
                   Send Message via WhatsApp
@@ -648,9 +653,9 @@ Thank you for your time and I look forward to hearing from you soon!`;
           <div className="grid md:grid-cols-3 gap-8">
             <div>
               <div className="flex items-center space-x-3 mb-4">
-                <img 
-                  src={logoImg} 
-                  alt="Mydukur Hotel Logo" 
+                <img
+                  src={logoImg}
+                  alt="Mydukur Hotel Logo"
                   className="w-10 h-10 rounded-full object-cover"
                 />
                 <h3 className="text-2xl font-bold text-amber-400">
@@ -733,8 +738,8 @@ Thank you for your time and I look forward to hearing from you soon!`;
 
           <div className="border-t border-gray-700 mt-8 pt-8 text-center">
             <p className="text-gray-300">
-              © {new Date().getFullYear()} Mydukur Hotel. All rights reserved.
-              Made with ❤️ for authentic South Indian cuisine lovers.
+              © {copyrightYears()} Mydukur Hotel. All rights reserved. Made with
+              ❤️ for authentic South Indian cuisine lovers.
             </p>
             <div className="mt-3 space-x-4 text-sm">
               <Link
