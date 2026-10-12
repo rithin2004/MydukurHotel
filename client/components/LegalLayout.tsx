@@ -1,5 +1,6 @@
 import { useEffect, type ReactNode } from "react";
 import { Link } from "react-router";
+import { copyrightYears } from "@/lib/copyright";
 
 const logoImg = "/Logo.jpg";
 
@@ -52,7 +53,7 @@ export default function LegalLayout({
       </main>
 
       <footer className="bg-gray-800 text-gray-300 py-6 text-center">
-        © {new Date().getFullYear()} Mydukur Hotel. All rights reserved.
+        © {copyrightYears()} Mydukur Hotel. All rights reserved.
       </footer>
     </div>
   );
