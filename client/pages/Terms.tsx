@@ -1,8 +1,19 @@
 import LegalLayout from "@/components/LegalLayout";
+import { useLanguage } from "@/i18n/LanguageProvider";
+import { TermsTelugu } from "./TermsTelugu";
 
 export default function Terms() {
+  const { lang, t } = useLanguage();
   return (
-    <LegalLayout title="Terms of Use" effectiveDate="12 October 2026">
+    <LegalLayout title={t.pages.termsTitle}>
+      {lang === "te" ? <TermsTelugu /> : <TermsEnglish />}
+    </LegalLayout>
+  );
+}
+
+function TermsEnglish() {
+  return (
+    <>
       <section>
         <p>
           By using this website you agree to these terms. If you do not agree,
@@ -88,6 +99,6 @@ export default function Terms() {
           9885973718 (phone or WhatsApp).
         </p>
       </section>
-    </LegalLayout>
+    </>
   );
 }

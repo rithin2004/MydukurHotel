@@ -14,6 +14,61 @@
     />
     <link rel="canonical" href="https://mydukurhotel.netlify.app/" />
     <link rel="icon" type="image/jpeg" href="/Logo.jpg" />
+    <link rel="apple-touch-icon" href="/Logo.jpg" />
+
+    <!-- Start downloading the hero photo before the app code runs -->
+    <link
+      rel="preload"
+      as="image"
+      href="/images/hero-mobile.webp"
+      type="image/webp"
+      media="(max-width: 639px)"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="/images/hero.webp"
+      type="image/webp"
+      media="(min-width: 640px)"
+      fetchpriority="high"
+    />
+
+    <!-- Restaurant details for Google Search and Maps -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "name": "Mydukur Hotel",
+        "url": "https://mydukurhotel.netlify.app/",
+        "logo": "https://mydukurhotel.netlify.app/Logo.jpg",
+        "image": "https://mydukurhotel.netlify.app/og-image.jpg",
+        "description": "Authentic South Indian dosas at Main Bazaar, Atmakur, Nellore.",
+        "telephone": "+91 9885973718",
+        "servesCuisine": "South Indian",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Main Bazaar",
+          "addressLocality": "Atmakur",
+          "addressRegion": "Andhra Pradesh",
+          "addressCountry": "IN"
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
+          "opens": "07:00",
+          "closes": "11:00"
+        }
+      }
+    </script>
 
     <!-- Link previews (WhatsApp, Facebook, X, etc.) -->
     <meta property="og:type" content="website" />
