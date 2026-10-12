@@ -10,7 +10,7 @@
 
 [**🌐 Visit the website**](https://mydukurhotel.netlify.app/) &nbsp;·&nbsp;
 [**🗣️ Read in Telugu**](https://mydukurhotel.netlify.app/?lang=te) &nbsp;·&nbsp;
-[**💬 WhatsApp us**](https://wa.me/919885973718)
+<a href="https://wa.me/919885973718"><img src="docs/badges/whatsapp.svg" alt="" height="18" align="absmiddle" /> <b>WhatsApp us</b></a>
 
 <br />
 
