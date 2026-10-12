@@ -39,7 +39,24 @@ export default function Index() {
     { name: "Vada Sambar", category: "main" },
     { name: "Poori", category: "main" },
     { name: "Bonda", category: "main" },
-    { name: "Pongal", category: "main" },
+  ];
+
+  const testimonials = [
+    {
+      name: "Paritala Vaibhav",
+      quote:
+        "The most authentic South Indian food I've ever tasted. Mydukur Hotel brings the true flavors of traditional cuisine to every plate.",
+    },
+    {
+      name: "S Sai Rithin",
+      quote:
+        "I love the Masala Dosa here. The red karam combined with the poori curry is a perfect match. I like it so much that I sometimes eat here every day!",
+    },
+    {
+      name: "Menta Sathya Hemanth",
+      quote:
+        "The dosas here are delicious and very affordable. One of my favourite places to eat.",
+    },
   ];
 
   const sideDishes = [
@@ -347,13 +364,13 @@ Thank you for your time and I look forward to hearing from you soon!`;
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 items-start">
             {/* Main Dishes */}
-            <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-8">
+            <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-8 lg:col-span-2">
               <h3 className="text-3xl font-bold text-gray-800 mb-8 text-center">
                 Main Dishes
               </h3>
-              <div className="space-y-4">
+              <div className="grid gap-4 lg:grid-cols-2">
                 {menuItems.map((item, index) => (
                   <div
                     key={index}
@@ -446,21 +463,26 @@ Thank you for your time and I look forward to hearing from you soon!`;
               </div>
             </div>
 
-            <div className="mt-16 bg-white bg-opacity-10 rounded-2xl p-8">
-              <div className="flex justify-center mb-6">
-                {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className="w-8 h-8 text-yellow-300 fill-current"
-                  />
-                ))}
-              </div>
-              <blockquote className="text-2xl italic mb-4">
-                "The most authentic South Indian food I've ever tasted. Mydukur
-                Hotel brings the true flavors of traditional cuisine to every
-                plate."
-              </blockquote>
-              <cite className="text-lg">- Paritala Vaibhav</cite>
+            <div className="mt-16 grid md:grid-cols-3 gap-8">
+              {testimonials.map((testimonial) => (
+                <div
+                  key={testimonial.name}
+                  className="bg-white bg-opacity-10 rounded-2xl p-8 flex flex-col"
+                >
+                  <div className="flex justify-center mb-6">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className="w-6 h-6 text-yellow-300 fill-current"
+                      />
+                    ))}
+                  </div>
+                  <blockquote className="text-lg italic mb-4 flex-1">
+                    "{testimonial.quote}"
+                  </blockquote>
+                  <cite className="text-lg">- {testimonial.name}</cite>
+                </div>
+              ))}
             </div>
           </div>
         </div>
