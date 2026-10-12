@@ -27,13 +27,8 @@
      uses Noto Sans Telugu; English keeps the default font untouched. */
   :lang(te) {
     font-family:
-      "Noto Sans Telugu",
-      ui-sans-serif,
-      system-ui,
-      sans-serif,
-      "Apple Color Emoji",
-      "Segoe UI Emoji",
-      "Segoe UI Symbol",
+      "Noto Sans Telugu", ui-sans-serif, system-ui, sans-serif,
+      "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
       "Noto Color Emoji";
   }
 
