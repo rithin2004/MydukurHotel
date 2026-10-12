@@ -21,3 +21,24 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer base {
+  /* Telugu text (the whole page in Telugu mode, plus the "తెలుగు" switch)
+     uses Noto Sans Telugu; English keeps the default font untouched. */
+  :lang(te) {
+    font-family:
+      "Noto Sans Telugu",
+      ui-sans-serif,
+      system-ui,
+      sans-serif,
+      "Apple Color Emoji",
+      "Segoe UI Emoji",
+      "Segoe UI Symbol",
+      "Noto Color Emoji";
+  }
+
+  /* Telugu letters are taller; give headings room so lines don't overlap. */
+  html[lang="te"] :is(h1, h2, h3, h4) {
+    line-height: 1.4;
+  }
+}

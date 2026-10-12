@@ -1,14 +1,17 @@
 import { useEffect } from "react";
 import { Link } from "react-router";
 import SimplePageShell from "@/components/SimplePageShell";
+import { useLanguage } from "@/i18n/LanguageProvider";
 
 const NotFound = () => {
+  const { t } = useLanguage();
+
   useEffect(() => {
-    document.title = "Page not found | Mydukur Hotel";
+    document.title = `${t.pages.notFoundTitle} | ${t.brand}`;
     return () => {
       document.title = "Mydukur Hotel";
     };
-  }, []);
+  }, [t]);
 
   return (
     <SimplePageShell>
@@ -16,17 +19,14 @@ const NotFound = () => {
         <div className="text-center">
           <p className="text-7xl font-bold text-amber-600 mb-4">404</p>
           <h1 className="text-3xl font-bold text-gray-800 mb-3">
-            Page not found
+            {t.pages.notFoundTitle}
           </h1>
-          <p className="text-lg text-gray-600 mb-8">
-            Sorry, we couldn't find that page. Our dosas are waiting on the home
-            page!
-          </p>
+          <p className="text-lg text-gray-600 mb-8">{t.pages.notFoundText}</p>
           <Link
             to="/"
             className="inline-block bg-amber-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-amber-700 transition-colors"
           >
-            Back to Home
+            {t.pages.notFoundButton}
           </Link>
         </div>
       </main>

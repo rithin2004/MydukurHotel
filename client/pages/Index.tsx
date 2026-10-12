@@ -1,9 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import masalaDosaImg from "../assets/MasalaDosa.webp";
 import karamDosaImg from "../assets/KaramDosa.webp";
-import plainDosaImg from "../assets/PlainDosa.jpg";
-import heroImg from "../assets/Hero.webp";
-import heroMobileImg from "../assets/Hero-mobile.webp";
+import plainDosaImg from "../assets/PlainDosa.webp";
+import idlySambarImg from "../assets/IdlySambar.webp";
 import gheeKaramPodiDosaImg from "../assets/GheeKaramPodiDosa.webp";
 import gheeKaramDosaImg from "../assets/GheeKaramDosa.webp";
 import {
@@ -21,126 +20,51 @@ import {
 
 import { Link } from "react-router";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
+import LanguageToggle from "@/components/LanguageToggle";
+import ShopStatus from "@/components/ShopStatus";
 import { copyrightYears } from "@/lib/copyright";
+import { PHONE_DISPLAY, PHONE_URL, whatsappUrl } from "@/lib/contact";
+import { useLanguage } from "@/i18n/LanguageProvider";
 
 const logoImg = "/Logo.jpg";
-const phoneUrl = "tel:+919885973718";
-const whatsappChatUrl =
-  "https://wa.me/919885973718?text=Hello%2C%20I%20would%20like%20to%20know%20more%20details%20of%20Mydukur%20Hotel.";
+// Hero images live in public/ so index.html can preload them.
+const heroImg = "/images/hero.webp";
+const heroMobileImg = "/images/hero-mobile.webp";
 const mapQuery = "Mydukur Hotel, Main Bazaar, Atmakur, Nellore, Andhra Pradesh";
 const mapEmbedUrl = `https://maps.google.com/maps?q=${encodeURIComponent(mapQuery)}&output=embed`;
 const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(mapQuery)}`;
 
 export default function Index() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { t } = useLanguage();
+  const whatsappChatUrl = whatsappUrl(t.whatsapp.quickMessage);
 
-  const menuItems = [
-    { name: "Plain Dosa", category: "main" },
-    { name: "Karam Dosa", category: "main" },
-    { name: "Podi Dosa", category: "main" },
-    { name: "Karam Podi Dosa", category: "main" },
-    { name: "Ghee Karam Podi Dosa", category: "main" },
-    { name: "Karam Masala Dosa", category: "main" },
-    { name: "Ghee Karam Dosa", category: "main" },
-    { name: "Ghee Masala Dosa", category: "main" },
-    { name: "Idly", category: "main" },
-    { name: "Idly Sambar", category: "main" },
-    { name: "Vada", category: "main" },
-    { name: "Vada Sambar", category: "main" },
-    { name: "Poori", category: "main" },
-    { name: "Bonda", category: "main" },
-  ];
+  useEffect(() => {
+    document.title = t.brand;
+  }, [t.brand]);
 
-  const testimonials = [
-    {
-      name: "Paritala Vaibhav",
-      quote:
-        "The most authentic South Indian food I've ever tasted. Mydukur Hotel brings the true flavors of traditional cuisine to every plate.",
-    },
-    {
-      name: "S Sai Rithin",
-      quote:
-        "I love the Masala Dosa here. The red karam combined with the poori curry is a perfect match. I like it so much that I sometimes eat here every day!",
-    },
-    {
-      name: "Menta Sathya Hemanth",
-      quote:
-        "The dosas here are delicious and very affordable. One of my favourite places to eat.",
-    },
-  ];
-
-  const sideDishes = [
-    { name: "Coconut Chutney" },
-    { name: "Red Chilli Onion Chutney" },
-    { name: "Masala for Poori" },
-    { name: "Sambar" },
+  const navLinks = [
+    { href: "#home", label: t.nav.home },
+    { href: "#menu", label: t.nav.menu },
+    { href: "#services", label: t.nav.services },
+    { href: "#quality", label: t.nav.quality },
+    { href: "#contact", label: t.nav.contact },
   ];
 
   const signatureDishes = [
-    {
-      name: "Masala Dosa",
-      image: masalaDosaImg,
-      description:
-        "Golden crispy dosa filled with spiced potato masala, served with coconut chutney and sambar. Our most popular dish!",
-    },
-    {
-      name: "Karam Dosa",
-      image: karamDosaImg,
-      description:
-        "Spicy dosa with special red chilli onion chutney that adds a fiery kick to every bite. Perfect for spice lovers!",
-    },
-    {
-      name: "Ghee Karam Dosa",
-      image: gheeKaramDosaImg,
-      description:
-        "Hot and crispy dosa topped with spicy red chilli onion chutney and a touch of ghee for that fiery kick you just can't resist.",
-    },
-    {
-      name: "Plain Dosa",
-      image: plainDosaImg,
-      description:
-        "Classic thin and crispy dosa, light and delicious. The perfect canvas for our homemade chutneys.",
-    },
-    {
-      name: "Ghee Karam Podi Dosa",
-      image: gheeKaramPodiDosaImg,
-      description:
-        "Crispy dosa topped with flavorful red chilli onion chutney, homemade podi and a drizzle of ghee that creates a bold and fiery taste in every bite. A must-try for spice enthusiasts.",
-    },
-    {
-      name: "Idly Sambar",
-      image: heroImg,
-      description:
-        "Soft and fluffy idlis served with hot, flavorful sambar for a wholesome South Indian classic.",
-    },
+    { ...t.signature.dishes.masala, image: masalaDosaImg },
+    { ...t.signature.dishes.karam, image: karamDosaImg },
+    { ...t.signature.dishes.gheeKaram, image: gheeKaramDosaImg },
+    { ...t.signature.dishes.plain, image: plainDosaImg },
+    { ...t.signature.dishes.gheeKaramPodi, image: gheeKaramPodiDosaImg },
+    { ...t.signature.dishes.idlySambar, image: idlySambarImg },
   ];
 
-  const services = [
-    {
-      icon: Utensils,
-      title: "Authentic South Indian Cuisine",
-      description:
-        "Traditional recipes passed down through generations, prepared with the finest ingredients.",
-    },
-    {
-      icon: Clock,
-      title: "Fresh Daily Preparation",
-      description:
-        "All our items are prepared fresh daily using traditional cooking methods.",
-    },
-    {
-      icon: Shield,
-      title: "Hygienic Kitchen",
-      description:
-        "Maintaining the highest standards of cleanliness and food safety.",
-    },
-    {
-      icon: ChefHat,
-      title: "Catering Services",
-      description:
-        "We provide professional catering services for events, parties, and special occasions with authentic South Indian cuisine.",
-    },
-  ];
+  const serviceIcons = [Utensils, Clock, Shield, ChefHat];
+  const services = t.services.items.map((item, i) => ({
+    ...item,
+    icon: serviceIcons[i],
+  }));
 
   const [formData, setFormData] = useState({
     name: "",
@@ -161,21 +85,10 @@ export default function Index() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.mobile || !formData.message) {
-      alert("Please fill in all required fields");
+      alert(t.contact.fillRequired);
       return;
     }
-
-    const whatsappMessage = `Hello Mydukur Hotel!
-
-Greetings! My name is ${formData.name}.
-
-${formData.message}
-
-Please contact me at ${formData.mobile}${formData.email ? ` or email ${formData.email}` : ""}.
-
-Thank you for your time and I look forward to hearing from you soon!`;
-    const whatsappUrl = `https://wa.me/919885973718?text=${encodeURIComponent(whatsappMessage)}`;
-    window.open(whatsappUrl, "_blank");
+    window.open(whatsappUrl(t.whatsapp.formMessage(formData)), "_blank");
   };
 
   return (
@@ -188,51 +101,32 @@ Thank you for your time and I look forward to hearing from you soon!`;
               <div className="flex items-center space-x-3">
                 <img
                   src={logoImg}
-                  alt="Mydukur Hotel Logo"
+                  alt={t.logoAlt}
                   className="w-10 h-10 rounded-full object-cover"
                 />
-                <h1 className="text-2xl font-bold text-amber-600">
-                  Mydukur Hotel
+                <h1 className="text-xl sm:text-2xl font-bold text-amber-600 whitespace-nowrap">
+                  {t.brand}
                 </h1>
               </div>
             </div>
 
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-8">
-              <a
-                href="#home"
-                className="text-gray-700 hover:text-amber-600 transition-colors"
-              >
-                Home
-              </a>
-              <a
-                href="#menu"
-                className="text-gray-700 hover:text-amber-600 transition-colors"
-              >
-                Menu
-              </a>
-              <a
-                href="#services"
-                className="text-gray-700 hover:text-amber-600 transition-colors"
-              >
-                Services
-              </a>
-              <a
-                href="#quality"
-                className="text-gray-700 hover:text-amber-600 transition-colors"
-              >
-                Quality
-              </a>
-              <a
-                href="#contact"
-                className="text-gray-700 hover:text-amber-600 transition-colors"
-              >
-                Contact
-              </a>
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="text-gray-700 hover:text-amber-600 transition-colors"
+                >
+                  {link.label}
+                </a>
+              ))}
+              <LanguageToggle />
             </div>
 
             {/* Mobile menu button */}
-            <div className="md:hidden flex items-center">
+            <div className="md:hidden flex items-center gap-3">
+              <LanguageToggle />
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="text-gray-700"
@@ -247,36 +141,16 @@ Thank you for your time and I look forward to hearing from you soon!`;
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-lg">
-              <a
-                href="#home"
-                className="block px-3 py-2 text-gray-700 hover:text-amber-600"
-              >
-                Home
-              </a>
-              <a
-                href="#menu"
-                className="block px-3 py-2 text-gray-700 hover:text-amber-600"
-              >
-                Menu
-              </a>
-              <a
-                href="#services"
-                className="block px-3 py-2 text-gray-700 hover:text-amber-600"
-              >
-                Services
-              </a>
-              <a
-                href="#quality"
-                className="block px-3 py-2 text-gray-700 hover:text-amber-600"
-              >
-                Quality
-              </a>
-              <a
-                href="#contact"
-                className="block px-3 py-2 text-gray-700 hover:text-amber-600"
-              >
-                Contact
-              </a>
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className="block px-3 py-2 text-gray-700 hover:text-amber-600"
+                >
+                  {link.label}
+                </a>
+              ))}
             </div>
           </div>
         )}
@@ -296,25 +170,26 @@ Thank you for your time and I look forward to hearing from you soon!`;
         <div className="max-w-7xl mx-auto px-4 py-20 mt-32 sm:mt-16 md:mt-20 lg:mt-28 xl:mt-40">
           <div className="text-center text-white">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6">
-              Welcome to <span className="text-amber-400">Mydukur Hotel</span>
+              {t.hero.titleBefore}
+              <span className="text-amber-400">{t.brand}</span>
+              {t.hero.titleAfter}
             </h1>
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 max-w-3xl mx-auto">
-              Experience the authentic taste of South Indian cuisine with our
-              traditional recipes and warm hospitality that has been serving
-              families for two generations.
+              {t.hero.text}
             </p>
+            <ShopStatus variant="dark" className="mb-6 sm:mb-8" />
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <a
                 href="#signature-dishes"
                 className="bg-amber-600 text-white px-4 py-3 sm:px-6 sm:py-3 md:px-8 md:py-4 rounded-full text-sm sm:text-base md:text-lg font-semibold hover:bg-amber-700 transition-colors"
               >
-                View Our Signature Dishes
+                {t.hero.signatureButton}
               </a>
               <a
                 href="#contact"
                 className="border-2 border-amber-400 text-amber-400 px-4 py-3 sm:px-6 sm:py-3 md:px-8 md:py-4 rounded-full text-sm sm:text-base md:text-lg font-semibold hover:bg-amber-400 hover:text-white transition-colors"
               >
-                Contact Us
+                {t.hero.contactButton}
               </a>
             </div>
           </div>
@@ -326,11 +201,10 @@ Thank you for your time and I look forward to hearing from you soon!`;
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-              Our Signature Dishes
+              {t.signature.title}
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Discover our most beloved creations that have made Mydukur Hotel a
-              culinary destination
+              {t.signature.subtitle}
             </p>
           </div>
 
@@ -368,11 +242,10 @@ Thank you for your time and I look forward to hearing from you soon!`;
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-              Our Delicious Menu
+              {t.menu.title}
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Savor the authentic flavors of South India with our carefully
-              crafted traditional dishes
+              {t.menu.subtitle}
             </p>
           </div>
 
@@ -380,16 +253,16 @@ Thank you for your time and I look forward to hearing from you soon!`;
             {/* Main Dishes */}
             <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-8 lg:col-span-2">
               <h3 className="text-3xl font-bold text-gray-800 mb-8 text-center">
-                Main Dishes
+                {t.menu.mainTitle}
               </h3>
               <div className="grid gap-4 lg:grid-cols-2">
-                {menuItems.map((item, index) => (
+                {t.menu.mainItems.map((item, index) => (
                   <div
                     key={index}
                     className="p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
                   >
                     <span className="text-lg font-medium text-gray-800">
-                      {item.name}
+                      {item}
                     </span>
                   </div>
                 ))}
@@ -399,16 +272,16 @@ Thank you for your time and I look forward to hearing from you soon!`;
             {/* Side Dishes */}
             <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8">
               <h3 className="text-3xl font-bold text-gray-800 mb-8 text-center">
-                Side Dishes
+                {t.menu.sideTitle}
               </h3>
               <div className="space-y-4">
-                {sideDishes.map((item, index) => (
+                {t.menu.sideItems.map((item, index) => (
                   <div
                     key={index}
                     className="p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
                   >
                     <span className="text-lg font-medium text-gray-800">
-                      {item.name}
+                      {item}
                     </span>
                   </div>
                 ))}
@@ -423,11 +296,10 @@ Thank you for your time and I look forward to hearing from you soon!`;
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-              Our Services
+              {t.services.title}
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              We pride ourselves on delivering exceptional dining experiences
-              with quality and tradition
+              {t.services.subtitle}
             </p>
           </div>
 
@@ -458,27 +330,27 @@ Thank you for your time and I look forward to hearing from you soon!`;
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center text-white">
             <h2 className="text-4xl md:text-5xl font-bold mb-8">
-              Quality That Speaks for Itself
+              {t.quality.title}
             </h2>
             <div className="grid md:grid-cols-3 gap-8 mt-16">
               <div className="text-center">
                 <div className="text-5xl font-bold mb-4">25+</div>
-                <div className="text-xl">Years of Experience</div>
+                <div className="text-xl">{t.quality.years}</div>
               </div>
               <div className="text-center">
                 <div className="text-5xl font-bold mb-4">1500+</div>
-                <div className="text-xl">Happy Customers Weekly</div>
+                <div className="text-xl">{t.quality.customers}</div>
               </div>
               <div className="text-center">
                 <div className="text-5xl font-bold mb-4">15+</div>
-                <div className="text-xl">Authentic Dishes</div>
+                <div className="text-xl">{t.quality.dishes}</div>
               </div>
             </div>
 
             <div className="mt-16 grid md:grid-cols-3 gap-8">
-              {testimonials.map((testimonial) => (
+              {t.quality.testimonials.map((testimonial, index) => (
                 <div
-                  key={testimonial.name}
+                  key={index}
                   className="bg-white bg-opacity-10 rounded-2xl p-8 flex flex-col"
                 >
                   <div className="flex justify-center mb-6">
@@ -505,11 +377,10 @@ Thank you for your time and I look forward to hearing from you soon!`;
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-              Contact Us
+              {t.contact.title}
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Visit us today and experience the authentic taste of South Indian
-              cuisine
+              {t.contact.subtitle}
             </p>
           </div>
 
@@ -520,14 +391,16 @@ Thank you for your time and I look forward to hearing from you soon!`;
                   <div className="bg-amber-100 p-3 rounded-full">
                     <MapPin className="w-6 h-6 text-amber-600" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-800">Visit Us</h3>
+                  <h3 className="text-xl font-bold text-gray-800">
+                    {t.contact.visitTitle}
+                  </h3>
                 </div>
                 <p className="text-gray-600 ml-16">
-                  Mydukur Hotel
+                  {t.contact.addressLines[0]}
                   <br />
-                  Main Bazaar, Atmakur, Nellore
+                  {t.contact.addressLines[1]}
                   <br />
-                  Andhra Pradesh, India
+                  {t.contact.addressLines[2]}
                 </p>
                 <a
                   href={directionsUrl}
@@ -536,7 +409,7 @@ Thank you for your time and I look forward to hearing from you soon!`;
                   className="ml-16 mt-3 inline-flex items-center gap-2 text-amber-600 font-semibold hover:text-amber-700 transition-colors"
                 >
                   <Navigation className="w-4 h-4" />
-                  Get Directions
+                  {t.contact.directions}
                 </a>
               </div>
 
@@ -545,24 +418,28 @@ Thank you for your time and I look forward to hearing from you soon!`;
                   <div className="bg-amber-100 p-3 rounded-full">
                     <Phone className="w-6 h-6 text-amber-600" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-800">Call Us</h3>
+                  <h3 className="text-xl font-bold text-gray-800">
+                    {t.contact.callTitle}
+                  </h3>
                 </div>
                 <div className="ml-16 flex flex-wrap items-center gap-3">
                   <a
-                    href={phoneUrl}
+                    href={PHONE_URL}
                     className="text-gray-600 hover:text-amber-600 hover:underline transition-colors"
                   >
-                    +91 9885973718
+                    {PHONE_DISPLAY}
                   </a>
                   <a
                     href={whatsappChatUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label="Chat on WhatsApp"
+                    aria-label={t.contact.chatOnWhatsapp}
                     className="inline-flex items-center gap-1.5 bg-[#25D366] text-white text-sm font-semibold p-2 sm:px-3 sm:py-1.5 rounded-full hover:bg-[#1DA851] transition-colors"
                   >
                     <WhatsAppIcon className="w-5 h-5 sm:w-4 sm:h-4" />
-                    <span className="hidden sm:inline">WhatsApp</span>
+                    <span className="hidden sm:inline">
+                      {t.contact.whatsapp}
+                    </span>
                   </a>
                 </div>
               </div>
@@ -573,20 +450,21 @@ Thank you for your time and I look forward to hearing from you soon!`;
                     <Clock className="w-6 h-6 text-amber-600" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-800">
-                    Opening Hours
+                    {t.contact.hoursTitle}
                   </h3>
                 </div>
                 <p className="text-gray-600 ml-16">
-                  Monday - Sunday
+                  {t.contact.days}
                   <br />
-                  7:00 AM - 11:00 AM
+                  {t.contact.hours}
                 </p>
+                <ShopStatus className="ml-16 mt-3" />
               </div>
             </div>
 
             <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-8 lg:col-span-3 flex flex-col">
               <h3 className="text-2xl font-bold text-gray-800 mb-6">
-                Get in Touch
+                {t.contact.formTitle}
               </h3>
               <form
                 onSubmit={handleSubmit}
@@ -595,7 +473,7 @@ Thank you for your time and I look forward to hearing from you soon!`;
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Name <span className="text-red-500">*</span>
+                      {t.contact.name} <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="text"
@@ -608,7 +486,7 @@ Thank you for your time and I look forward to hearing from you soon!`;
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Mobile Number <span className="text-red-500">*</span>
+                      {t.contact.mobile} <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="tel"
@@ -622,7 +500,7 @@ Thank you for your time and I look forward to hearing from you soon!`;
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Email
+                    {t.contact.email}
                   </label>
                   <input
                     type="email"
@@ -634,7 +512,7 @@ Thank you for your time and I look forward to hearing from you soon!`;
                 </div>
                 <div className="flex-1 flex flex-col">
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Message <span className="text-red-500">*</span>
+                    {t.contact.message} <span className="text-red-500">*</span>
                   </label>
                   <textarea
                     rows={3}
@@ -650,7 +528,7 @@ Thank you for your time and I look forward to hearing from you soon!`;
                   className="w-full inline-flex items-center justify-center gap-2 bg-amber-600 text-white px-4 sm:px-6 py-3 rounded-lg text-sm sm:text-base font-semibold hover:bg-amber-700 transition-colors"
                 >
                   <WhatsAppIcon className="w-5 h-5" />
-                  Send Message via WhatsApp
+                  {t.contact.send}
                 </button>
               </form>
             </div>
@@ -658,7 +536,7 @@ Thank you for your time and I look forward to hearing from you soon!`;
 
           <div className="mt-12 rounded-2xl overflow-hidden shadow-sm">
             <iframe
-              title="Mydukur Hotel on Google Maps"
+              title={t.contact.mapTitle}
               src={mapEmbedUrl}
               className="w-full h-80 md:h-96 border-0"
               loading="lazy"
@@ -670,24 +548,19 @@ Thank you for your time and I look forward to hearing from you soon!`;
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-800 text-white py-8">
+      <footer className="bg-gray-800 text-white pt-8 pb-24 md:pb-8">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8">
             <div>
               <div className="flex items-center space-x-3 mb-4">
                 <img
                   src={logoImg}
-                  alt="Mydukur Hotel Logo"
+                  alt={t.logoAlt}
                   className="w-10 h-10 rounded-full object-cover"
                 />
-                <h3 className="text-2xl font-bold text-amber-400">
-                  Mydukur Hotel
-                </h3>
+                <h3 className="text-2xl font-bold text-amber-400">{t.brand}</h3>
               </div>
-              <p className="text-gray-300 mb-6">
-                Serving authentic South Indian cuisine with traditional recipes
-                and warm hospitality for over 25 years.
-              </p>
+              <p className="text-gray-300 mb-6">{t.footer.tagline}</p>
               <div className="flex space-x-4">
                 <a
                   href={whatsappChatUrl}
@@ -696,93 +569,62 @@ Thank you for your time and I look forward to hearing from you soon!`;
                   className="text-gray-300 hover:text-amber-400 transition-colors flex items-center space-x-2"
                 >
                   <WhatsAppIcon className="w-5 h-5 text-[#25D366]" />
-                  <span>WhatsApp</span>
+                  <span>{t.contact.whatsapp}</span>
                 </a>
               </div>
             </div>
 
             <div>
-              <h4 className="text-xl font-bold mb-4">Quick Links</h4>
+              <h4 className="text-xl font-bold mb-4">{t.footer.quickLinks}</h4>
               <ul className="space-y-2">
-                <li>
-                  <a
-                    href="#home"
-                    className="text-gray-300 hover:text-amber-400 transition-colors"
-                  >
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#menu"
-                    className="text-gray-300 hover:text-amber-400 transition-colors"
-                  >
-                    Menu
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#services"
-                    className="text-gray-300 hover:text-amber-400 transition-colors"
-                  >
-                    Services
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#quality"
-                    className="text-gray-300 hover:text-amber-400 transition-colors"
-                  >
-                    Quality
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#contact"
-                    className="text-gray-300 hover:text-amber-400 transition-colors"
-                  >
-                    Contact
-                  </a>
-                </li>
+                {navLinks.map((link) => (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      className="text-gray-300 hover:text-amber-400 transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
 
             <div>
-              <h4 className="text-xl font-bold mb-4">Contact Info</h4>
+              <h4 className="text-xl font-bold mb-4">{t.footer.contactInfo}</h4>
               <ul className="space-y-2 text-gray-300">
-                <li>Main Bazaar, Atmakur, Nellore</li>
-                <li>Andhra Pradesh, India</li>
+                <li>{t.footer.addressLines[0]}</li>
+                <li>{t.footer.addressLines[1]}</li>
                 <li>
-                  Phone:{" "}
+                  {t.footer.phone}:{" "}
                   <a
-                    href={phoneUrl}
+                    href={PHONE_URL}
                     className="hover:text-amber-400 hover:underline transition-colors"
                   >
-                    +91 9885973718
+                    {PHONE_DISPLAY}
                   </a>
                 </li>
-                <li>Open daily: 7:00 AM - 11:00 AM</li>
+                <li>{t.footer.openDaily}</li>
               </ul>
             </div>
           </div>
 
           <div className="border-t border-gray-700 mt-8 pt-8 text-center">
             <p className="text-gray-300">
-              © {copyrightYears()} Mydukur Hotel. All rights reserved. Made with
-              ❤️ for authentic South Indian cuisine lovers.
+              © {copyrightYears()} {t.footer.rights} {t.footer.madeWith}
             </p>
             <div className="mt-3 space-x-4 text-sm">
               <Link
                 to="/privacy"
                 className="text-gray-400 hover:text-amber-400 transition-colors"
               >
-                Privacy Policy
+                {t.footer.privacy}
               </Link>
               <Link
                 to="/terms"
                 className="text-gray-400 hover:text-amber-400 transition-colors"
               >
-                Terms of Use
+                {t.footer.terms}
               </Link>
             </div>
           </div>

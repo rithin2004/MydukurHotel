@@ -1,8 +1,19 @@
 import LegalLayout from "@/components/LegalLayout";
+import { useLanguage } from "@/i18n/LanguageProvider";
+import { PrivacyTelugu } from "./PrivacyTelugu";
 
 export default function Privacy() {
+  const { lang, t } = useLanguage();
   return (
-    <LegalLayout title="Privacy Policy" effectiveDate="12 October 2026">
+    <LegalLayout title={t.pages.privacyTitle}>
+      {lang === "te" ? <PrivacyTelugu /> : <PrivacyEnglish />}
+    </LegalLayout>
+  );
+}
+
+function PrivacyEnglish() {
+  return (
+    <>
       <section>
         <p>
           This Privacy Policy explains how Mydukur Hotel ("we", "us") handles
@@ -114,6 +125,6 @@ export default function Privacy() {
           top of this page shows when it last changed.
         </p>
       </section>
-    </LegalLayout>
+    </>
   );
 }

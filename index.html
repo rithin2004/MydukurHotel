@@ -16,6 +16,24 @@
     <link rel="icon" type="image/jpeg" href="/Logo.jpg" />
     <link rel="apple-touch-icon" href="/Logo.jpg" />
 
+    <!-- Start downloading the hero photo before the app code runs -->
+    <link
+      rel="preload"
+      as="image"
+      href="/images/hero-mobile.webp"
+      type="image/webp"
+      media="(max-width: 639px)"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="/images/hero.webp"
+      type="image/webp"
+      media="(min-width: 640px)"
+      fetchpriority="high"
+    />
+
     <!-- Restaurant details for Google Search and Maps -->
     <script type="application/ld+json">
       {
