@@ -1,26 +1,36 @@
-import { useLocation } from "react-router";
 import { useEffect } from "react";
+import { Link } from "react-router";
+import SimplePageShell from "@/components/SimplePageShell";
 
 const NotFound = () => {
-  const location = useLocation();
-
   useEffect(() => {
-    console.error(
-      "404 Error: User attempted to access non-existent route:",
-      location.pathname,
-    );
-  }, [location.pathname]);
+    document.title = "Page not found | Mydukur Hotel";
+    return () => {
+      document.title = "Mydukur Hotel";
+    };
+  }, []);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">404</h1>
-        <p className="text-xl text-gray-600 mb-4">Oops! Page not found</p>
-        <a href="/" className="text-blue-500 hover:text-blue-700 underline">
-          Return to Home
-        </a>
-      </div>
-    </div>
+    <SimplePageShell>
+      <main className="flex-1 flex items-center justify-center px-4 py-20 bg-gradient-to-br from-amber-50 to-orange-50">
+        <div className="text-center">
+          <p className="text-7xl font-bold text-amber-600 mb-4">404</p>
+          <h1 className="text-3xl font-bold text-gray-800 mb-3">
+            Page not found
+          </h1>
+          <p className="text-lg text-gray-600 mb-8">
+            Sorry, we couldn't find that page. Our dosas are waiting on the home
+            page!
+          </p>
+          <Link
+            to="/"
+            className="inline-block bg-amber-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-amber-700 transition-colors"
+          >
+            Back to Home
+          </Link>
+        </div>
+      </main>
+    </SimplePageShell>
   );
 };
 

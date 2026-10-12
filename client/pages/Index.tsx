@@ -344,6 +344,8 @@ Thank you for your time and I look forward to hearing from you soon!`;
                   <img
                     src={dish.image}
                     alt={dish.name}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
                 </div>
