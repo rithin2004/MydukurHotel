@@ -9,16 +9,16 @@
 **Main Bazaar, Atmakur, Nellore · Open daily 7:00 AM – 11:00 AM**
 
 [**🌐 Visit the website**](https://mydukurhotel.netlify.app/) &nbsp;·&nbsp;
-[**తెలుగులో చూడండి**](https://mydukurhotel.netlify.app/?lang=te) &nbsp;·&nbsp;
+[**🗣️ Read in Telugu**](https://mydukurhotel.netlify.app/?lang=te) &nbsp;·&nbsp;
 [**💬 WhatsApp us**](https://wa.me/919885973718)
 
 <br />
 
-![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)
-![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-7-3178C6?logo=typescript&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-06B6D4?logo=tailwindcss&logoColor=white)
-![Netlify](https://img.shields.io/badge/Hosted_on-Netlify-00C7B7?logo=netlify&logoColor=white)
+<img src="docs/badges/react.svg" alt="React 19" height="20" />
+<img src="docs/badges/vite.svg" alt="Vite 8" height="20" />
+<img src="docs/badges/typescript.svg" alt="TypeScript 7" height="20" />
+<img src="docs/badges/tailwind.svg" alt="Tailwind CSS 3" height="20" />
+<img src="docs/badges/netlify.svg" alt="Hosted on Netlify" height="20" />
 
 </div>
 
@@ -41,7 +41,7 @@
 | Feature | What it does |
 |---|---|
 | 🍽️ **Signature dishes & full menu** | Masala Dosa, Karam Dosa, Ghee Karam Podi Dosa, Idly Sambar and more, with photos |
-| 🌐 **English & తెలుగు** | Every page, button and WhatsApp message in both languages, one tap to switch |
+| 🌐 **English & Telugu** | Every page, button and WhatsApp message in both languages, one tap to switch |
 | 🟢 **Live “Open now” status** | Shows whether the hotel is open right now (India time), and when it opens next |
 | 💬 **WhatsApp everywhere** | Floating chat button, plus a contact form that turns into a ready-to-send WhatsApp message |
 | 📞 **Tap to call & directions** | Phone number opens the dialer; Get Directions opens Google Maps navigation |
