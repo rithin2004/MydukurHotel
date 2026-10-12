@@ -16,10 +16,16 @@ import {
   Utensils,
   Shield,
   ChefHat,
-  MessageCircle,
+  Navigation,
 } from "lucide-react";
 
+import { Link } from "react-router";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
+
 const logoImg = "/Logo.jpg";
+const mapQuery = "Mydukur Hotel, Main Bazaar, Atmakur, Nellore, Andhra Pradesh";
+const mapEmbedUrl = `https://maps.google.com/maps?q=${encodeURIComponent(mapQuery)}&output=embed`;
+const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(mapQuery)}`;
 
 export default function Index() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -291,7 +297,7 @@ Thank you for your time and I look forward to hearing from you soon!`;
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 max-w-3xl mx-auto">
               Experience the authentic taste of South Indian cuisine with our
               traditional recipes and warm hospitality that has been serving
-              families for generations.
+              families for two generations.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <a
@@ -454,8 +460,8 @@ Thank you for your time and I look forward to hearing from you soon!`;
                 <div className="text-xl">Years of Experience</div>
               </div>
               <div className="text-center">
-                <div className="text-5xl font-bold mb-4">1000+</div>
-                <div className="text-xl">Happy Customers Daily</div>
+                <div className="text-5xl font-bold mb-4">1500+</div>
+                <div className="text-xl">Happy Customers Weekly</div>
               </div>
               <div className="text-center">
                 <div className="text-5xl font-bold mb-4">15+</div>
@@ -517,6 +523,15 @@ Thank you for your time and I look forward to hearing from you soon!`;
                   <br />
                   Andhra Pradesh, India
                 </p>
+                <a
+                  href={directionsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ml-16 mt-3 inline-flex items-center gap-2 text-amber-600 font-semibold hover:text-amber-700 transition-colors"
+                >
+                  <Navigation className="w-4 h-4" />
+                  Get Directions
+                </a>
               </div>
 
               <div className="bg-white p-6 rounded-lg shadow-sm">
@@ -541,9 +556,10 @@ Thank you for your time and I look forward to hearing from you soon!`;
                 <p className="text-gray-600 ml-16">
                   Monday - Sunday
                   <br />
-                  6:00 AM - 11:00 AM
+                  7:00 AM - 11:00 AM
                 </p>
               </div>
+
             </div>
 
             <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-8">
@@ -604,12 +620,24 @@ Thank you for your time and I look forward to hearing from you soon!`;
                 </div>
                 <button
                   type="submit"
-                  className="w-full bg-amber-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-amber-700 transition-colors"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-amber-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-amber-700 transition-colors"
                 >
+                  <WhatsAppIcon className="w-5 h-5" />
                   Send Message via WhatsApp
                 </button>
               </form>
             </div>
+          </div>
+
+          <div className="mt-12 rounded-2xl overflow-hidden shadow-sm">
+            <iframe
+              title="Mydukur Hotel on Google Maps"
+              src={mapEmbedUrl}
+              className="w-full h-80 md:h-96 border-0"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
           </div>
         </div>
       </section>
@@ -640,7 +668,7 @@ Thank you for your time and I look forward to hearing from you soon!`;
                   rel="noopener noreferrer"
                   className="text-gray-300 hover:text-amber-400 transition-colors flex items-center space-x-2"
                 >
-                  <MessageCircle className="w-5 h-5" />
+                  <WhatsAppIcon className="w-5 h-5 text-[#25D366]" />
                   <span>WhatsApp</span>
                 </a>
               </div>
@@ -698,15 +726,30 @@ Thank you for your time and I look forward to hearing from you soon!`;
                 <li>Main Bazaar, Atmakur, Nellore</li>
                 <li>Andhra Pradesh, India</li>
                 <li>Phone: +91 9885973718</li>
+                <li>Open daily: 7:00 AM - 11:00 AM</li>
               </ul>
             </div>
           </div>
 
           <div className="border-t border-gray-700 mt-8 pt-8 text-center">
             <p className="text-gray-300">
-              © 2025 Mydukur Hotel. All rights reserved. Made with ❤️ for
-              authentic South Indian cuisine lovers.
+              © {new Date().getFullYear()} Mydukur Hotel. All rights reserved.
+              Made with ❤️ for authentic South Indian cuisine lovers.
             </p>
+            <div className="mt-3 space-x-4 text-sm">
+              <Link
+                to="/privacy"
+                className="text-gray-400 hover:text-amber-400 transition-colors"
+              >
+                Privacy Policy
+              </Link>
+              <Link
+                to="/terms"
+                className="text-gray-400 hover:text-amber-400 transition-colors"
+              >
+                Terms of Use
+              </Link>
+            </div>
           </div>
         </div>
       </footer>
