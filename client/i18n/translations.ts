@@ -72,7 +72,10 @@ export type Translations = {
     email: string;
     message: string;
     send: string;
-    fillRequired: string;
+    nameInvalid: string;
+    mobileInvalid: string;
+    emailInvalid: string;
+    messageRequired: string;
     agreeBefore: string;
     agreeBetween: string;
     agreeTermsLink: string;
@@ -280,7 +283,10 @@ export const en: Translations = {
     email: "Email",
     message: "Message",
     send: "Send Message via WhatsApp",
-    fillRequired: "Please fill in all required fields",
+    nameInvalid: "Please enter your name (letters only, at least 2)",
+    mobileInvalid: "Please enter a 10-digit mobile number",
+    emailInvalid: "Please enter a valid email address",
+    messageRequired: "Please enter your message",
     agreeBefore: "I agree to the ",
     agreeBetween: " and ",
     agreeTermsLink: "Terms of Use",
@@ -492,7 +498,10 @@ export const te: Translations = {
     email: "ఈమెయిల్",
     message: "సందేశం",
     send: "వాట్సాప్ ద్వారా సందేశం పంపండి",
-    fillRequired: "దయచేసి అవసరమైన అన్ని వివరాలు నింపండి",
+    nameInvalid: "దయచేసి మీ పేరు నమోదు చేయండి (అక్షరాలు మాత్రమే, కనీసం 2)",
+    mobileInvalid: "దయచేసి 10 అంకెల మొబైల్ నంబర్ నమోదు చేయండి",
+    emailInvalid: "దయచేసి సరైన ఈమెయిల్ చిరునామా నమోదు చేయండి",
+    messageRequired: "దయచేసి మీ సందేశాన్ని రాయండి",
     agreeBefore: "నేను ",
     agreeBetween: ", ",
     // Joins with agreeAfter to read "వినియోగ నిబంధనలకు".

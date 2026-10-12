@@ -20,6 +20,7 @@ import {
 
 import { Link } from "react-router";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
+import ContactForm from "@/components/ContactForm";
 import LanguageToggle from "@/components/LanguageToggle";
 import ShopStatus from "@/components/ShopStatus";
 import { copyrightYears } from "@/lib/copyright";
@@ -66,36 +67,6 @@ export default function Index() {
     ...item,
     icon: serviceIcons[i],
   }));
-
-  const [agreed, setAgreed] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    mobile: "",
-    message: "",
-  });
-
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!formData.name || !formData.mobile || !formData.message) {
-      alert(t.contact.fillRequired);
-      return;
-    }
-    if (!agreed) {
-      alert(t.contact.agreeRequired);
-      return;
-    }
-    window.open(whatsappUrl(t.whatsapp.formMessage(formData)), "_blank");
-  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -473,127 +444,7 @@ export default function Index() {
               >
                 {t.contact.formTitle}
               </h3>
-              <form
-                onSubmit={handleSubmit}
-                name="contact"
-                autoComplete="on"
-                aria-labelledby="contact-form-title"
-                className="flex-1 flex flex-col justify-between gap-5"
-              >
-                <div className="grid sm:grid-cols-2 gap-5">
-                  <div>
-                    <label
-                      htmlFor="contact-name"
-                      className="block text-sm font-medium text-gray-700 mb-2"
-                    >
-                      {t.contact.name} <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      id="contact-name"
-                      name="name"
-                      autoComplete="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="contact-mobile"
-                      className="block text-sm font-medium text-gray-700 mb-2"
-                    >
-                      {t.contact.mobile} <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="tel"
-                      id="contact-mobile"
-                      name="mobile"
-                      autoComplete="tel"
-                      inputMode="tel"
-                      value={formData.mobile}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label
-                    htmlFor="contact-email"
-                    className="block text-sm font-medium text-gray-700 mb-2"
-                  >
-                    {t.contact.email}
-                  </label>
-                  <input
-                    type="email"
-                    id="contact-email"
-                    name="email"
-                    autoComplete="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="contact-message"
-                    className="block text-sm font-medium text-gray-700 mb-2"
-                  >
-                    {t.contact.message} <span className="text-red-500">*</span>
-                  </label>
-                  <textarea
-                    rows={4}
-                    id="contact-message"
-                    name="message"
-                    autoComplete="off"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 resize-none border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-                  ></textarea>
-                </div>
-                <div className="flex items-start gap-3">
-                  <input
-                    type="checkbox"
-                    id="contact-agree"
-                    name="agree"
-                    autoComplete="off"
-                    required
-                    checked={agreed}
-                    onChange={(e) => setAgreed(e.target.checked)}
-                    className="mt-1 h-4 w-4 shrink-0 accent-amber-600"
-                  />
-                  <label
-                    htmlFor="contact-agree"
-                    className="text-sm text-gray-700"
-                  >
-                    {t.contact.agreeBefore}
-                    <Link
-                      to="/privacy"
-                      className="text-amber-600 underline hover:text-amber-700"
-                    >
-                      {t.footer.privacy}
-                    </Link>
-                    {t.contact.agreeBetween}
-                    <Link
-                      to="/terms"
-                      className="text-amber-600 underline hover:text-amber-700"
-                    >
-                      {t.contact.agreeTermsLink}
-                    </Link>
-                    {t.contact.agreeAfter}
-                  </label>
-                </div>
-                <button
-                  type="submit"
-                  className="w-full inline-flex items-center justify-center gap-2 bg-amber-600 text-white px-4 sm:px-6 py-3 rounded-lg text-sm sm:text-base font-semibold hover:bg-amber-700 transition-colors"
-                >
-                  <WhatsAppIcon className="w-5 h-5" />
-                  {t.contact.send}
-                </button>
-              </form>
+              <ContactForm />
             </div>
           </div>
 
