@@ -20,6 +20,7 @@ import {
 
 import { Link } from "react-router";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
+import ContactForm from "@/components/ContactForm";
 import LanguageToggle from "@/components/LanguageToggle";
 import ShopStatus from "@/components/ShopStatus";
 import { copyrightYears } from "@/lib/copyright";
@@ -30,8 +31,9 @@ const logoImg = "/Logo.jpg";
 // Hero images live in public/ so index.html can preload them.
 const heroImg = "/images/hero.webp";
 const heroMobileImg = "/images/hero-mobile.webp";
-const mapQuery = "Mydukur Hotel, Main Bazaar, Atmakur, Nellore, Andhra Pradesh";
-const mapEmbedUrl = `https://maps.google.com/maps?q=${encodeURIComponent(mapQuery)}&output=embed`;
+// Search by address (not the hotel name, which Google matched to other hotels).
+const mapQuery = "Main Bazaar, Atmakur, Andhra Pradesh 524322";
+const mapEmbedUrl = `https://maps.google.com/maps?q=${encodeURIComponent(mapQuery)}&z=16&output=embed`;
 const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(mapQuery)}`;
 
 export default function Index() {
@@ -65,31 +67,6 @@ export default function Index() {
     ...item,
     icon: serviceIcons[i],
   }));
-
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    mobile: "",
-    message: "",
-  });
-
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!formData.name || !formData.mobile || !formData.message) {
-      alert(t.contact.fillRequired);
-      return;
-    }
-    window.open(whatsappUrl(t.whatsapp.formMessage(formData)), "_blank");
-  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -434,12 +411,10 @@ export default function Index() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={t.contact.chatOnWhatsapp}
-                    className="inline-flex items-center gap-1.5 bg-[#25D366] text-white text-sm font-semibold p-2 sm:px-3 sm:py-1.5 rounded-full hover:bg-[#1DA851] transition-colors"
+                    title={t.contact.chatOnWhatsapp}
+                    className="inline-flex items-center justify-center rounded-full bg-[#25D366] p-2 text-white hover:bg-[#1DA851] transition-colors"
                   >
-                    <WhatsAppIcon className="w-5 h-5 sm:w-4 sm:h-4" />
-                    <span className="hidden sm:inline">
-                      {t.contact.whatsapp}
-                    </span>
+                    <WhatsAppIcon className="w-5 h-5" />
                   </a>
                 </div>
               </div>
@@ -463,74 +438,13 @@ export default function Index() {
             </div>
 
             <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-8 lg:col-span-3 flex flex-col">
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">
+              <h3
+                id="contact-form-title"
+                className="text-2xl font-bold text-gray-800 mb-6"
+              >
                 {t.contact.formTitle}
               </h3>
-              <form
-                onSubmit={handleSubmit}
-                className="flex-1 flex flex-col gap-5"
-              >
-                <div className="grid sm:grid-cols-2 gap-5">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      {t.contact.name} <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      {t.contact.mobile} <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="tel"
-                      name="mobile"
-                      value={formData.mobile}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    {t.contact.email}
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-                  />
-                </div>
-                <div className="flex-1 flex flex-col">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    {t.contact.message} <span className="text-red-500">*</span>
-                  </label>
-                  <textarea
-                    rows={3}
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    required
-                    className="flex-1 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-                  ></textarea>
-                </div>
-                <button
-                  type="submit"
-                  className="w-full inline-flex items-center justify-center gap-2 bg-amber-600 text-white px-4 sm:px-6 py-3 rounded-lg text-sm sm:text-base font-semibold hover:bg-amber-700 transition-colors"
-                >
-                  <WhatsAppIcon className="w-5 h-5" />
-                  {t.contact.send}
-                </button>
-              </form>
+              <ContactForm />
             </div>
           </div>
 
@@ -616,13 +530,13 @@ export default function Index() {
             <div className="mt-3 space-x-4 text-sm">
               <Link
                 to="/privacy"
-                className="text-gray-400 hover:text-amber-400 transition-colors"
+                className="text-gray-300 underline underline-offset-2 hover:text-amber-400 transition-colors"
               >
                 {t.footer.privacy}
               </Link>
               <Link
                 to="/terms"
-                className="text-gray-400 hover:text-amber-400 transition-colors"
+                className="text-gray-300 underline underline-offset-2 hover:text-amber-400 transition-colors"
               >
                 {t.footer.terms}
               </Link>

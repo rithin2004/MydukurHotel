@@ -20,7 +20,7 @@ client/
 ├── pages/          # Index (home), Privacy, Terms and NotFound
 ├── components/     # shared pieces (language switch, shop status, ...)
 ├── i18n/           # English and Telugu text (translations.ts)
-├── lib/            # opening hours, contact details, helpers
+├── lib/            # opening hours, contact details, form validation
 ├── assets/         # images
 └── global.css      # Tailwind theme tokens
 public/             # static files served as-is
