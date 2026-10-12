@@ -24,6 +24,9 @@ import WhatsAppIcon from "@/components/WhatsAppIcon";
 import { copyrightYears } from "@/lib/copyright";
 
 const logoImg = "/Logo.jpg";
+const phoneUrl = "tel:+919885973718";
+const whatsappChatUrl =
+  "https://wa.me/919885973718?text=Hello%2C%20I%20would%20like%20to%20know%20more%20details%20of%20Mydukur%20Hotel.";
 const mapQuery = "Mydukur Hotel, Main Bazaar, Atmakur, Nellore, Andhra Pradesh";
 const mapEmbedUrl = `https://maps.google.com/maps?q=${encodeURIComponent(mapQuery)}&output=embed`;
 const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(mapQuery)}`;
@@ -542,7 +545,24 @@ Thank you for your time and I look forward to hearing from you soon!`;
                   </div>
                   <h3 className="text-xl font-bold text-gray-800">Call Us</h3>
                 </div>
-                <p className="text-gray-600 ml-16">+91 9885973718</p>
+                <div className="ml-16 flex flex-wrap items-center gap-3">
+                  <a
+                    href={phoneUrl}
+                    className="text-gray-600 hover:text-amber-600 hover:underline transition-colors"
+                  >
+                    +91 9885973718
+                  </a>
+                  <a
+                    href={whatsappChatUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Chat on WhatsApp"
+                    className="inline-flex items-center gap-1.5 bg-[#25D366] text-white text-sm font-semibold p-2 sm:px-3 sm:py-1.5 rounded-full hover:bg-[#1DA851] transition-colors"
+                  >
+                    <WhatsAppIcon className="w-5 h-5 sm:w-4 sm:h-4" />
+                    <span className="hidden sm:inline">WhatsApp</span>
+                  </a>
+                </div>
               </div>
 
               <div className="bg-white p-6 rounded-lg shadow-sm">
@@ -668,7 +688,7 @@ Thank you for your time and I look forward to hearing from you soon!`;
               </p>
               <div className="flex space-x-4">
                 <a
-                  href="https://wa.me/919885973718?text=Hello%2C%20I%20would%20like%20to%20know%20more%20details%20of%20Mydukur%20Hotel."
+                  href={whatsappChatUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-300 hover:text-amber-400 transition-colors flex items-center space-x-2"
@@ -730,7 +750,15 @@ Thank you for your time and I look forward to hearing from you soon!`;
               <ul className="space-y-2 text-gray-300">
                 <li>Main Bazaar, Atmakur, Nellore</li>
                 <li>Andhra Pradesh, India</li>
-                <li>Phone: +91 9885973718</li>
+                <li>
+                  Phone:{" "}
+                  <a
+                    href={phoneUrl}
+                    className="hover:text-amber-400 hover:underline transition-colors"
+                  >
+                    +91 9885973718
+                  </a>
+                </li>
                 <li>Open daily: 7:00 AM - 11:00 AM</li>
               </ul>
             </div>
