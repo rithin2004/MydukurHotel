@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Link } from "react-router";
+import DeveloperCredit from "@/components/DeveloperCredit";
 import LanguageToggle from "@/components/LanguageToggle";
 import { copyrightYears } from "@/lib/copyright";
 import { useLanguage } from "@/i18n/LanguageProvider";
@@ -38,7 +39,10 @@ export default function SimplePageShell({ children }: { children: ReactNode }) {
       {children}
 
       <footer className="bg-gray-800 text-gray-300 pt-6 pb-24 sm:pb-6 px-4 text-center">
-        © {copyrightYears()} {t.footer.rights}
+        <p>
+          © {copyrightYears()} {t.footer.rights}
+        </p>
+        <DeveloperCredit className="mt-2" />
       </footer>
     </div>
   );

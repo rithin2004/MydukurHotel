@@ -20,6 +20,7 @@ import {
 
 import { Link } from "react-router";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
+import DeveloperCredit from "@/components/DeveloperCredit";
 import ContactForm from "@/components/ContactForm";
 import LanguageToggle from "@/components/LanguageToggle";
 import ShopStatus from "@/components/ShopStatus";
@@ -324,7 +325,7 @@ export default function Index() {
               </div>
             </div>
 
-            <div className="mt-16 grid md:grid-cols-3 gap-8">
+            <div className="mt-16 grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               {t.quality.testimonials.map((testimonial, index) => (
                 <div
                   key={index}
@@ -541,6 +542,7 @@ export default function Index() {
                 {t.footer.terms}
               </Link>
             </div>
+            <DeveloperCredit className="mt-4" />
           </div>
         </div>
       </footer>
