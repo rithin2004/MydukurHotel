@@ -325,7 +325,7 @@ export default function Index() {
               </div>
             </div>
 
-            <div className="mt-16 grid md:grid-cols-3 gap-8">
+            <div className="mt-16 grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               {t.quality.testimonials.map((testimonial, index) => (
                 <div
                   key={index}

@@ -250,11 +250,6 @@ export const en: Translations = {
           "The most authentic South Indian food I've ever tasted. Mydukur Hotel brings the true flavors of traditional cuisine to every plate.",
       },
       {
-        name: "S Sai Rithin",
-        quote:
-          "I love the Masala Dosa here. The red karam combined with the poori curry is a perfect match. I like it so much that I sometimes eat here every day!",
-      },
-      {
         name: "Menta Sathya Hemanth",
         quote:
           "The dosas here are delicious and very affordable. One of my favourite places to eat.",
@@ -465,11 +460,6 @@ export const te: Translations = {
         name: "పరిటాల వైభవ్",
         quote:
           "నేను ఇప్పటివరకు రుచి చూసిన వాటిలో ఇదే అసలైన దక్షిణ భారత భోజనం. మైదుకూరు హోటల్ ప్రతి ప్లేట్‌లో సంప్రదాయ వంటకాల నిజమైన రుచిని అందిస్తుంది.",
-      },
-      {
-        name: "ఎస్. సాయి రిథిన్",
-        quote:
-          "ఇక్కడి మసాలా దోశ నాకు చాలా ఇష్టం. ఎర్ర కారం, పూరీ కూర కలయిక అద్భుతంగా ఉంటుంది. ఎంత ఇష్టమంటే కొన్నిసార్లు రోజూ ఇక్కడే తింటాను!",
       },
       {
         name: "మెంటా సత్య హేమంత్",
