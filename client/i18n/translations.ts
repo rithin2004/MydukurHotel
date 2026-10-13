@@ -112,6 +112,7 @@ export type Translations = {
     madeWith: string;
     privacy: string;
     terms: string;
+    websiteBy: string;
   };
   pages: {
     backHome: string;
@@ -328,6 +329,7 @@ Thank you for your time and I look forward to hearing from you soon!`,
     madeWith: "Made with ❤️ for authentic South Indian cuisine lovers.",
     privacy: "Privacy Policy",
     terms: "Terms of Use",
+    websiteBy: "Website by",
   },
   pages: {
     backHome: "Back to home",
@@ -548,6 +550,7 @@ ${message}
     madeWith: "అసలైన దక్షిణ భారత రుచుల ప్రియుల కోసం ❤️ తో తయారుచేయబడింది.",
     privacy: "గోప్యతా విధానం",
     terms: "వినియోగ నిబంధనలు",
+    websiteBy: "వెబ్‌సైట్ రూపకల్పన:",
   },
   pages: {
     backHome: "హోమ్‌కు వెళ్ళండి",

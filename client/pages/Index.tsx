@@ -20,6 +20,7 @@ import {
 
 import { Link } from "react-router";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
+import DeveloperCredit from "@/components/DeveloperCredit";
 import ContactForm from "@/components/ContactForm";
 import LanguageToggle from "@/components/LanguageToggle";
 import ShopStatus from "@/components/ShopStatus";
@@ -541,6 +542,7 @@ export default function Index() {
                 {t.footer.terms}
               </Link>
             </div>
+            <DeveloperCredit className="mt-4" />
           </div>
         </div>
       </footer>
